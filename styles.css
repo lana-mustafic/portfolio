@@ -156,3 +156,109 @@ p {
     margin-right: 8px;
     color: #4fc3f7;
 }
+/* Projects Section */
+.projects {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #0d0d0d;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #ffffff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card h3 {
+    color: #4fc3f7;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    margin-bottom: 20px;
+    color: #bbbbbb;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tech-stack span {
+    background-color: #252525;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+.btn-ghost {
+    background-color: transparent !important;
+    border: 1px solid #4fc3f7 !important;
+    color: #4fc3f7 !important;
+}
+
+.btn-ghost:hover {
+    background-color: rgba(79, 195, 247, 0.1) !important;
+}
+
+/* Soft Skills Section */
+.soft-skills {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.soft-skills h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #ffffff;
+}
+
+.soft-skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.soft-skill-item {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.soft-skill-item:hover {
+    transform: scale(1.05);
+}
+
+.soft-skill-item i {
+    color: #4fc3f7;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
