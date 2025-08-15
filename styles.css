@@ -354,3 +354,26 @@ footer {
         grid-template-columns: 1fr; /* 1 column on tiny screens */
     }
 }
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #4fc3f7;
+    color: #121212;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top:hover {
+    background-color: #3fb0e0;
+}
