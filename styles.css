@@ -1,0 +1,30 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* Pure white for name */
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #bbbbbb; /* Slightly dimmed text */
+}
