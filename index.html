@@ -3,155 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lana Mustafić | Full-Stack Developer</title>
+    <title>Lana Mustafić | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Lana Mustafić</h1>
-        <p>Software Engineering Student | Full-Stack Developer</p>
+        <nav>
+            <div class="logo">LANA<span>MUSTAFIĆ</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
     </header>
-    <!-- Navigation Bar -->
-<nav class="navbar">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Lana Mustafić</h1>
-        <h2>Software Engineering Student | Full-Stack Developer</h2>
-        <p>Passionate about creating efficient, user-friendly applications with .NET, Angular, and IoT.</p>
-        <a href="#projects" class="btn">View My Work</a>
-    </div>
-    <!-- Optional: Add your photo here later -->
-</section>
-<!-- Skills Section -->
-<section id="skills" class="skills">
-    <h2>Skills & Tools</h2>
-    <div class="skills-grid">
-        <!-- Languages & Frameworks -->
-        <div class="skill-category">
-            <h3>Languages & Frameworks</h3>
-            <div class="skill-items">
-                <div class="skill-item"><i class="fab fa-microsoft"></i> C#</div>
-                <div class="skill-item"><i class="fab fa-angular"></i> Angular</div>
-                <div class="skill-item"><i class="fab fa-react"></i> React</div>
-                <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-                <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-                <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
-                <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">HI, I'M <span>LANA MUSTAFIĆ</span></h1>
+                <p class="hero-subtitle">4th year Software Engineering Student | Aspiring Full-Stack Developer</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
             </div>
-        </div>
-
-        <!-- Databases -->
-        <div class="skill-category">
-            <h3>Databases</h3>
-            <div class="skill-items">
-                <div class="skill-item"><i class="fas fa-database"></i> SQL Server</div>
-                <div class="skill-item"><i class="fas fa-code"></i> Entity Framework</div>
+            <div class="hero-image">
+                <div class="image-placeholder"></div>
             </div>
-        </div>
+        </section>
 
-        <!-- Tools & Platforms -->
-        <div class="skill-category">
-            <h3>Tools & Platforms</h3>
-            <div class="skill-items">
-                <div class="skill-item"><i class="fab fa-docker"></i> Docker</div>
-                <div class="skill-item"><i class="fab fa-github"></i> Git/GitHub</div>
-                <div class="skill-item"><i class="fab fa-microsoft"></i> Azure</div>
-                <div class="skill-item"><i class="fas fa-cloud"></i> Render</div>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>I'm a passionate developer who loves creating beautiful, functional websites.</h3>
+                        <p>With X years of experience in web development, I specialize in creating responsive, user-friendly websites and applications.</p>
+                        <div class="about-buttons">
+                            <a href="#" class="btn btn-primary">Download CV</a>
+                            <a href="#contact" class="btn btn-secondary">Hire Me</a>
+                        </div>
+                    </div>
+                    <div class="about-skills">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level html-css"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level javascript"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>React</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level react"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-            <h3>eHospital</h3>
-            <p>A hospital management system with desktop (admin) and mobile (client) apps, featuring CRUD operations, authentication, and reporting.</p>
-            <div class="tech-stack">
-                <span>C#</span>
-                <span>ASP.NET Core</span>
-                <span>SQL Server</span>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">My <span>Projects</span></h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Project Title</h3>
+                            <p>Project description goes here with key features and technologies used.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-secondary">Live Demo</a>
+                                <a href="#" class="btn btn-primary">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="img-placeholder"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Project Title</h3>
+                            <p>Project description goes here with key features and technologies used.</p>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-secondary">Live Demo</a>
+                                <a href="#" class="btn btn-primary">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="https://github.com/lana-mustafic/ehospital" target="_blank" class="btn btn-ghost">
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
-        </div>
+        </section>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-            <h3>Task Management API</h3>
-            <p>ASP.NET Core API with JWT authentication, role-based authorization, task assignment, and cloud deployment.</p>
-            <div class="tech-stack">
-                <span>.NET Core</span>
-                <span>JWT</span>
-                <span>Azure</span>
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">My <span>Skills</span></h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li><i class="fab fa-html5"></i> HTML5</li>
+                            <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                            <li><i class="fab fa-js"></i> JavaScript</li>
+                            <li><i class="fab fa-react"></i> React</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <ul>
+                            <li><i class="fab fa-node-js"></i> Node.js</li>
+                            <li><i class="fas fa-database"></i> MongoDB</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><i class="fab fa-git"></i> Git</li>
+                            <li><i class="fab fa-figma"></i> Figma</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <a href="https://github.com/lana-mustafic/task-management-api" target="_blank" class="btn btn-ghost">
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
-        </div>
+        </section>
 
-        <!-- Project 3 -->
-        <div class="project-card">
-            <h3>IoT Sensor Monitoring</h3>
-            <p>IoT devices collecting and analyzing sensor data with real-time visualization dashboards.</p>
-            <div class="tech-stack">
-                <span>Python</span>
-                <span>Raspberry Pi</span>
-                <span>Data Analysis</span>
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's talk about your project</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>your.email@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 (123) 456-7890</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
-            <a href="https://github.com/lana-mustafic/iot-monitoring" target="_blank" class="btn btn-ghost">
-                <i class="fab fa-github"></i> View on GitHub
-            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- Soft Skills Section -->
-<section id="soft-skills" class="soft-skills">
-    <h2>Soft Skills</h2>
-    <div class="soft-skills-list">
-        <div class="soft-skill-item"><i class="fas fa-users"></i> Team Collaboration</div>
-        <div class="soft-skill-item"><i class="fas fa-lightbulb"></i> Problem Solving</div>
-        <div class="soft-skill-item"><i class="fas fa-comments"></i> Communication</div>
-        <div class="soft-skill-item"><i class="fas fa-hourglass-half"></i> Time Management</div>
-        <div class="soft-skill-item"><i class="fas fa-brain"></i> Critical Thinking</div>
-    </div>
-</section>
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <h2>Get In Touch</h2>
-    <p>Have a project in mind or want to connect? Reach out!</p>
-    <div class="contact-links">
-        <a href="mailto:llanamustafic@gmail.com" class="btn">
-            <i class="fas fa-envelope"></i> Email Me
-        </a>
-        <a href="https://github.com/lana-mustafic" target="_blank" class="btn btn-ghost">
-            <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="https://linkedin.com/in/lanamustafic" target="_blank" class="btn btn-ghost">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p>© 2025 Lana Mustafić</p>
-</footer>
-<script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
