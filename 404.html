@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-        // Handle email links or invalid paths
+        // Handle all possible 404 cases
         const path = window.location.pathname;
         
+        // Case 1: Email address in URL
         if (path.includes('@') || path.includes('mailto:')) {
-            // Redirect email links to contact section
             window.location.href = "https://lana-mustafic.github.io/portfolio/#contact";
-        } else {
-            // Redirect all other 404s to homepage
-            sessionStorage.redirect = location.pathname;
+        }
+        // Case 2: Any other invalid path
+        else {
             window.location.href = "https://lana-mustafic.github.io/portfolio/";
         }
     </script>
