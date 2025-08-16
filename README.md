@@ -18,7 +18,7 @@ A modern, responsive portfolio showcasing my projects, skills, and experience as
 ## 🔗 Links
 - [Live Demo](https://lana-mustafic.github.io/portofolio/)  
 - [LinkedIn](https://linkedin.com/in/lana-mustafic)  
-- [Email](llanamustafic@gmail.com)  
+- [Email](llanamustafic@gmail.com)
 
 ## 📜 License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
