@@ -1,6 +1,6 @@
 #  Lana Mustafić's Portfolio
 
-[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue?style=flat-square)](https://lana-mustafic.github.io/portofolio/)
+[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue?style=flat-square)][(https://lana-mustafic.github.io/portofolio/)](https://lana-mustafic.github.io/portfolio/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 A modern, responsive portfolio showcasing my projects, skills, and experience as a software engineering student.
