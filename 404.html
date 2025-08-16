@@ -4,11 +4,20 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-        sessionStorage.redirect = location.href;
-        location.replace("/");
+        // Handle email links or invalid paths
+        const path = window.location.pathname;
+        
+        if (path.includes('@') || path.includes('mailto:')) {
+            // Redirect email links to contact section
+            window.location.href = "https://lana-mustafic.github.io/portfolio/#contact";
+        } else {
+            // Redirect all other 404s to homepage
+            sessionStorage.redirect = location.pathname;
+            window.location.href = "https://lana-mustafic.github.io/portfolio/";
+        }
     </script>
 </head>
 <body>
-    Redirecting to home page...
+    Redirecting to portfolio...
 </body>
 </html>
