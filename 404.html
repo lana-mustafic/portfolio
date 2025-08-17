@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // Handle all possible 404 cases
+        const path = window.location.pathname;
+        
+        // Case 1: Email address in URL
+        if (path.includes('@') || path.includes('mailto:')) {
+            window.location.href = "https://lana-mustafic.github.io/portfolio/#contact";
+        }
+        // Case 2: Any other invalid path
+        else {
+            window.location.href = "https://lana-mustafic.github.io/portfolio/";
+        }
+    </script>
+</head>
+<body>
+    Redirecting to portfolio...
+</body>
+</html>
