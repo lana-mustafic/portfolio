@@ -1,4 +1,5 @@
 import AboutSection from "./components/homepage/about";
+import Education from "./components/homepage/education";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </section>
 
       <AboutSection />
+      <Education />
     </div>
   )
 }
