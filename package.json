@@ -1,7 +1,7 @@
 {
-  "name": "developer-portfolio",
-  "description": "Portfolio of Abu Said",
-  "version": "0.1.0",
+  "name": "lana-mustafic-portfolio",
+  "description": "Portfolio of Lana Mustafić - Junior Full-Stack Developer",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,6 +28,7 @@
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "15.1.1",
+    "gh-pages": "^6.3.0",
     "postcss": "latest",
     "sass": "^1.69.5",
     "tailwindcss": "latest"
