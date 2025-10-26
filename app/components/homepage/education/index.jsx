@@ -2,9 +2,6 @@
 import { educations } from "@/utils/data/educations";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
-import lottieFile from '../../../assets/lottie/study.json';
-import AnimationLottie from "../../helper/animation-lottie";
-import GlowCard from "../../helper/glow-card";
 
 function Education() {
   return (
@@ -34,45 +31,47 @@ function Education() {
 
       <div className="py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+          {/* Replace AnimationLottie with static content */}
           <div className="flex justify-center items-start">
-            <div className="w-3/4 h-3/4">
-              <AnimationLottie animationPath={lottieFile} />
+            <div className="w-3/4 h-3/4 flex items-center justify-center">
+              <div className="text-center text-white">
+                <div className="text-6xl mb-4">🎓</div>
+                <h3 className="text-xl font-bold text-[#16f2b3]">Education</h3>
+                <p className="text-gray-300 mt-2">My academic journey</p>
+              </div>
             </div>
           </div>
 
-          <div className="flex items-center -ml-8"> {/* Added -ml-8 to push left */}
+          <div className="flex items-center -ml-8">
             <div className="flex flex-col gap-6 w-full">
-              {
-                educations.map(education => (
-                  <GlowCard key={education.id} identifier={`education-${education.id}`}>
-                    <div className="p-3 relative text-white">
-                      <Image
-                        src="/blur-23.svg"
-                        alt="Hero"
-                        width={1080}
-                        height={200}
-                        className="absolute bottom-0 opacity-80"
-                      />
-                      <div className="flex justify-center">
-                        <p className="text-xs sm:text-sm text-[#16f2b3]">
-                          {education.duration}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-x-8 px-3 py-5">
-                        <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                          <BsPersonWorkspace size={36} />
-                        </div>
-                        <div>
-                          <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                            {education.title}
-                          </p>
-                          <p className="text-sm sm:text-base">{education.institution}</p>
-                        </div>
-                      </div>
+              {educations.map(education => (
+                // Replace GlowCard with simple div
+                <div key={education.id} className="bg-gradient-to-r from-[#0d1224] to-[#0a0d37] border border-[#1b2c68a0] rounded-lg p-6 relative overflow-hidden group hover:border-violet-500 transition-all duration-300">
+                  <Image
+                    src="/blur-23.svg"
+                    alt="Background"
+                    width={1080}
+                    height={200}
+                    className="absolute bottom-0 opacity-80"
+                  />
+                  <div className="flex justify-center mb-2">
+                    <p className="text-xs sm:text-sm text-[#16f2b3]">
+                      {education.duration}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-x-4">
+                    <div className="text-violet-500 transition-all duration-300 group-hover:scale-125">
+                      <BsPersonWorkspace size={36} />
                     </div>
-                  </GlowCard>
-                ))
-              }
+                    <div>
+                      <p className="text-base sm:text-xl mb-1 font-medium uppercase">
+                        {education.title}
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-300">{education.institution}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
