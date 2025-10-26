@@ -40,8 +40,8 @@ function Education() {
             </div>
           </div>
 
-          <div>
-            <div className="flex flex-col gap-6">
+          <div className="flex items-center -ml-8"> {/* Added -ml-8 to push left */}
+            <div className="flex flex-col gap-6 w-full">
               {
                 educations.map(education => (
                   <GlowCard key={education.id} identifier={`education-${education.id}`}>
