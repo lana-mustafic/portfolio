@@ -4,7 +4,7 @@ A modern, responsive personal portfolio website showcasing my work, skills, and 
 Built with cutting-edge technologies and deployed on **Vercel** for fast and reliable performance.
 
 <p align="left">
-  <a href="https://lana-mustafic.vercel.app" target="_blank">
+  <a href="https://portfolio-lana-mustafic.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/Live%20Site-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Site"/>
   </a>
   &nbsp;
