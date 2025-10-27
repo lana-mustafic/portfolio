@@ -39,41 +39,10 @@ function Education() {
         </div>
 
         <div className="py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            {/* Left side - Study Animation Replacement */}
-            <div className="flex justify-center items-center">
-              <div className="w-full max-w-md">
-                <div className="from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]">
-                  <div className="flex flex-row">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-violet-600"></div>
-                    <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
-                  </div>
-                  <div className="px-4 lg:px-8 py-5">
-                    <div className="flex flex-row space-x-2">
-                      <div className="h-3 w-3 rounded-full bg-red-400"></div>
-                      <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-                      <div className="h-3 w-3 rounded-full bg-green-200"></div>
-                    </div>
-                  </div>
-                  <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-8">
-                    <div className="flex flex-col items-center justify-center space-y-4">
-                      <div className="text-6xl">📚</div>
-                      <h3 className="text-2xl font-bold text-white text-center">Academic Journey</h3>
-                      <p className="text-[#16f2b3] text-center">Continuous Learning & Growth</p>
-                      <div className="flex space-x-2 mt-4">
-                        <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></div>
-                        <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                        <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right side - Education Cards */}
-            <div className="flex items-center">
-              <div className="flex flex-col gap-6 w-full">
+          {/* Remove grid and center the education cards */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-2xl"> {/* Adjust max-width as needed */}
+              <div className="flex flex-col gap-6">
                 {educations.map(education => (
                   <div 
                     key={education.id} 
