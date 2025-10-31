@@ -1,19 +1,21 @@
-import AboutSection from "./components/homepage/about";
-import Education from "./components/homepage/education";
-import ContactSection from "./components/homepage/contact";
-import Skills from "./components/homepage/skills";
-import Projects from "./components/homepage/projects";
-import HeroSection from "./components/homepage/hero-section";
+import Hero from './components/homepage/hero-section/index.jsx';
+import About from './components/homepage/about/index.jsx';
+import Skills from './components/homepage/skills/index.jsx';
+import Education from './components/homepage/education/index.jsx';
+import Projects from './components/homepage/projects/index.jsx';
+import Contact from './components/homepage/contact/index.jsx';
+import HonorsAwards from './components/honors-awards/honors-awards.jsx';
 
 export default function Home() {
   return (
-    <div>
-      <HeroSection />
-      <AboutSection />
+    <main>
+      <Hero />
+      <About />
       <Skills />
-      <Projects />
       <Education />
-      <ContactSection />
-    </div>
-  )
+      <Projects />
+      <HonorsAwards />
+      <Contact />
+    </main>
+  );
 }
