@@ -1,42 +1,61 @@
 export const projectsData = [
   {
     id: 1,
-    name: 'BetterMe',
+    name: "BetterMe",
     description:
-      'Full-stack task management app built with .NET 8 Web API and Angular 20. Includes authentication, task CRUD, tagging, priorities, and Dockerized deployment setup.',
-    tools: ['.NET 8', 'C#', 'ASP.NET Core', 'Entity Framework Core', 'Angular 20', 'TypeScript', 'SQL Server', 'Docker'],
-    role: 'Full-Stack Developer',
-    code: 'https://github.com/lana-mustafic/ToDoSolution',
-    demo: '',
+      "Full-stack Task Management App built with .NET 8, Angular 20, and SQL Server — featuring secure JWT authentication, task CRUD operations, and Dockerized deployment setup.",
+    tools: [
+      ".NET 8",
+      "C#",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "Angular 20",
+      "TypeScript",
+      "SQL Server",
+      "Docker",
+    ],
+    role: "Full-Stack Developer",
+    code: "https://github.com/lana-mustafic/BetterMe",
+    demo: "", // Add deployment link later if you want
   },
   {
     id: 2,
-    name: 'eHospital',
+    name: "eHospital",
     description:
-      'Desktop and mobile hospital management system built using C# and Flutter. Features include CRUD operations, reporting, and role-based access for admins, patients, and delivery staff.',
-    tools: ['C#', 'Flutter', 'SQL Server', 'Entity Framework', 'REST API', 'Visual Studio'],
-    role: 'Full-Stack Developer',
-    code: '',
-    demo: '',
+      "Full-stack Hospital Management System built with .NET 8, Angular, and SQL Server — includes patient, doctor, appointment, and medication management.",
+    tools: [
+      ".NET 8",
+      "C#",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "Angular",
+      "TypeScript",
+      "SQL Server",
+    ],
+    role: "Full-Stack Developer",
+    code: "https://github.com/lana-mustafic/eHospital", // Update if repo name is different
+    demo: "",
   },
-  {
-    id: 3,
-    name: 'Task Management API',
-    description:
-      'Secure RESTful API built with .NET 8, featuring JWT authentication, role-based authorization, and clean architecture. Deployed with Docker and designed for scalability and maintainability.',
-    tools: ['.NET 8', 'C#', 'Entity Framework Core', 'JWT', 'Docker', 'SQL Server', 'Postman'],
-    role: 'Backend Developer',
-    code: '',
-    demo: '',
+{
+  id: 3,
+  name: "NuaSpa",
+  description:
+    "Full-stack Spa Management Platform with Admin Web App and Mobile Client App — built with .NET 8 API backend, Angular admin dashboard, and Flutter mobile client. Supports service booking, categories, images, authentication & roles.",
+  tools: [
+    ".NET 8",
+    "C#",
+    "ASP.NET Core",
+    "Angular",
+    "TypeScript",
+    "Flutter",
+    "Dart",
+    "SQL Server"
+  ],
+  role: "Full-Stack Developer",
+  code: {
+    admin: "https://github.com/lana-mustafic/NuaSpa-admin",
+    client: "https://github.com/lana-mustafic/NuaSpa-mobile"
   },
-  {
-    id: 4,
-    name: 'Flutter Restaurant App',
-    description:
-      'A cross-platform mobile app for a restaurant, allowing users to browse the menu, place orders, and track deliveries in real-time. Currently in development with Firebase integration for authentication and data storage.',
-    tools: ['Flutter', 'Dart', 'Firebase', 'Provider', 'Figma'],
-    role: 'Mobile Developer',
-    code: '',
-    demo: '',
-  },
+  demo: ""
+}
 ];
