@@ -1,7 +1,6 @@
 export const personalData = {
   name: "Lana",
-  profile: null,
- // leave empty until you add your photo later
+  profile: "/resume_photo.jpg",
   designation: "Junior Full-Stack Developer",
   description:
     "I’m a soon-to-be Software Engineering graduate specializing in full-stack development with .NET and Angular. I’m passionate about building modern, maintainable applications using clean architecture, secure authentication, and efficient deployment workflows. Currently, I’m expanding my skills in .NET, Angular, and Docker, and preparing to start my Master’s degree in Software Engineering. I’m always eager to learn new technologies, explore creative ideas, and continuously grow as a developer.",
