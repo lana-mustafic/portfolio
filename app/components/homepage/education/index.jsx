@@ -5,7 +5,7 @@ import { BsPersonWorkspace } from "react-icons/bs";
 
 function Education() {
   return (
-    <div id="education" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b] min-h-screen flex items-center">
+    <div id="education" className="relative z-50 border-t my-8 lg:my-12 border-[#25213b] min-h-screen flex items-center">
       <Image
         src="/section.svg"
         alt="Hero"
