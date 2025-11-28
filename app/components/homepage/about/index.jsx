@@ -89,7 +89,7 @@ function AboutSection() {
                   </div>
                   <h3 className="text-white font-semibold text-sm">Always Learning</h3>
                 </div>
-                <p className="text-gray-400 text-xs">Master's Prep</p>
+                <p className="text-gray-400 text-xs">Master&apos;s Prep</p>
               </div>
             </div>
           </div>
