@@ -9,8 +9,11 @@ import { BsCodeSlash, BsRocketTakeoff, BsLightbulb } from "react-icons/bs";
 function AboutSection() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  // Split description into key points
-  const descriptionParts = personalData.description.split('. ');
+  // Split description into sentences safely
+  const descriptionParts = personalData.description.split('. ').filter(part => part.trim().length > 0);
+  const firstPart = descriptionParts[0] || personalData.description;
+  const secondPart = descriptionParts.slice(1, 3).join('. ') || '';
+  const thirdPart = descriptionParts.slice(3).join('. ') || '';
 
   return (
     <div id="about" className="my-8 lg:my-12 relative min-h-screen flex items-center">
@@ -40,15 +43,21 @@ function AboutSection() {
           <div className="order-2 lg:order-1 space-y-6">
             {/* Introduction */}
             <div className="space-y-4">
-              <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                {descriptionParts[0]}.
-              </p>
-              <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                {descriptionParts.slice(1, 3).join('. ')}.
-              </p>
-              <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                {descriptionParts.slice(3).join('. ')}.
-              </p>
+              {firstPart && (
+                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
+                  {firstPart}{firstPart.endsWith('.') ? '' : '.'}
+                </p>
+              )}
+              {secondPart && (
+                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
+                  {secondPart}{secondPart.endsWith('.') ? '' : '.'}
+                </p>
+              )}
+              {thirdPart && (
+                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
+                  {thirdPart}{thirdPart.endsWith('.') ? '' : '.'}
+                </p>
+              )}
             </div>
 
             {/* Key Highlights */}
