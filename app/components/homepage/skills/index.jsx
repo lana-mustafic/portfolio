@@ -14,12 +14,17 @@ function Skills() {
   const animationFrameRef = useRef(null);
   const scrollPositionRef = useRef(0);
   const scrollTimeoutRef = useRef(null);
+  const isUserScrollingRef = useRef(false);
+  const touchStartRef = useRef(false);
 
   useEffect(() => {
     const container = scrollContainerRef.current;
     const content = scrollContentRef.current;
     
     if (!container || !content) return;
+
+    // Initialize scroll position
+    scrollPositionRef.current = container.scrollLeft;
 
     const scrollSpeed = 0.5; // pixels per frame
     let lastTimestamp = 0;
@@ -29,10 +34,10 @@ function Skills() {
       const deltaTime = timestamp - lastTimestamp;
       lastTimestamp = timestamp;
 
-      if (!isPaused && container && content) {
+      if (!isPaused && container && content && !isUserScrollingRef.current) {
         scrollPositionRef.current += scrollSpeed * (deltaTime / 16); // normalize to 60fps
         
-        // Reset scroll position when it reaches halfway (seamless loop)
+        // Reset scroll position when it reaches halfway (seamless loop) - only during auto-scroll
         const maxScroll = content.scrollWidth / 2; // Since we duplicated content
         if (scrollPositionRef.current >= maxScroll) {
           scrollPositionRef.current = 0;
@@ -57,44 +62,74 @@ function Skills() {
   }, [isPaused]);
 
   const handleMouseEnter = () => {
-    setIsPaused(true);
+    // Only pause on hover for desktop (not touch devices)
+    if (!touchStartRef.current) {
+      setIsPaused(true);
+    }
   };
 
   const handleMouseLeave = () => {
-    // Resume after a short delay
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
-    }
-    scrollTimeoutRef.current = setTimeout(() => {
-      if (scrollContainerRef.current) {
-        scrollPositionRef.current = scrollContainerRef.current.scrollLeft;
+    // Resume after a short delay (only for desktop)
+    if (!touchStartRef.current) {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
-      setIsPaused(false);
-    }, 1000);
+      scrollTimeoutRef.current = setTimeout(() => {
+        if (scrollContainerRef.current) {
+          scrollPositionRef.current = scrollContainerRef.current.scrollLeft;
+        }
+        setIsPaused(false);
+      }, 1000);
+    }
   };
 
   const handleScroll = () => {
     if (scrollContainerRef.current && scrollContentRef.current) {
       const currentScroll = scrollContainerRef.current.scrollLeft;
-      const maxScroll = scrollContentRef.current.scrollWidth / 2;
       
-      // Handle seamless loop for manual scrolling
-      if (currentScroll >= maxScroll) {
-        scrollContainerRef.current.scrollLeft = currentScroll - maxScroll;
-        scrollPositionRef.current = currentScroll - maxScroll;
-      } else {
-        scrollPositionRef.current = currentScroll;
+      // Update position but don't reset during manual scrolling
+      // Let users scroll naturally to the end
+      scrollPositionRef.current = currentScroll;
+      
+      // Only pause if user is actively scrolling
+      if (!isUserScrollingRef.current) {
+        isUserScrollingRef.current = true;
+        setIsPaused(true);
       }
       
-      setIsPaused(true);
       // Resume auto-scroll after user stops scrolling
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
       scrollTimeoutRef.current = setTimeout(() => {
+        isUserScrollingRef.current = false;
+        // Always resume auto-scroll - it will handle looping naturally
         setIsPaused(false);
       }, 2000);
     }
+  };
+
+  const handleTouchStart = () => {
+    touchStartRef.current = true;
+    isUserScrollingRef.current = true;
+    setIsPaused(true);
+  };
+
+  const handleTouchEnd = () => {
+    // Resume auto-scroll after touch ends (for mobile)
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = setTimeout(() => {
+      touchStartRef.current = false;
+      isUserScrollingRef.current = false;
+      if (scrollContainerRef.current && scrollContentRef.current) {
+        const currentScroll = scrollContainerRef.current.scrollLeft;
+        scrollPositionRef.current = currentScroll;
+        // Always resume auto-scroll - it will handle looping naturally
+        setIsPaused(false);
+      }
+    }, 1500);
   };
 
   return (
@@ -124,6 +159,8 @@ function Skills() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onScroll={handleScroll}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <div ref={scrollContentRef} className="flex items-center">
             {/* Duplicate content for seamless infinite scroll */}
