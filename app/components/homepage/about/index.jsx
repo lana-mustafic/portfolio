@@ -15,7 +15,7 @@ function AboutSection() {
   const secondPart = descriptionParts.slice(1).join('. ') || '';
 
   return (
-    <div id="about" className="my-8 lg:my-12 relative min-h-screen flex items-center">
+    <div id="about" className="mt-8 lg:mt-12 mb-16 lg:mb-24 relative min-h-screen flex items-center">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/10 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl -z-10"></div>
