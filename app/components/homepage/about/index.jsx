@@ -9,11 +9,10 @@ import { BsCodeSlash, BsRocketTakeoff, BsLightbulb } from "react-icons/bs";
 function AboutSection() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  // Split description into sentences safely
+  // Split description into sentences safely - shorter version
   const descriptionParts = personalData.description.split('. ').filter(part => part.trim().length > 0);
   const firstPart = descriptionParts[0] || personalData.description;
-  const secondPart = descriptionParts.slice(1, 3).join('. ') || '';
-  const thirdPart = descriptionParts.slice(3).join('. ') || '';
+  const secondPart = descriptionParts.slice(1).join('. ') || '';
 
   return (
     <div id="about" className="my-8 lg:my-12 relative min-h-screen flex items-center">
@@ -51,11 +50,6 @@ function AboutSection() {
               {secondPart && (
                 <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
                   {secondPart}{secondPart.endsWith('.') ? '' : '.'}
-                </p>
-              )}
-              {thirdPart && (
-                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
-                  {thirdPart}{thirdPart.endsWith('.') ? '' : '.'}
                 </p>
               )}
             </div>
@@ -98,17 +92,16 @@ function AboutSection() {
           <div className="flex justify-center order-1 lg:order-2">
             <div className="relative group">
               {/* Decorative border */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-violet-500 via-pink-500 to-[#16f2b3] rounded-2xl opacity-20 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+              <div className="absolute -inset-3 bg-gradient-to-r from-violet-500 via-pink-500 to-[#16f2b3] rounded-full opacity-20 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
               
-              {/* Image container */}
-              <div className="relative rounded-2xl overflow-hidden border-2 border-violet-500/30 group-hover:border-violet-500/60 transition-all duration-500 shadow-2xl shadow-violet-500/20">
-                <div className="absolute inset-0 bg-gradient-to-t from-violet-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+              {/* Image container - circular */}
+              <div className="relative rounded-full overflow-hidden border-2 border-violet-500/30 group-hover:border-violet-500/60 transition-all duration-500 shadow-2xl shadow-violet-500/20">
                 <Image
                   src={personalData.profile}
-                  width={350}
-                  height={350}
+                  width={250}
+                  height={250}
                   alt="Lana Mustafić"
-                  className={`rounded-2xl transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105 ${
+                  className={`rounded-full transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105 object-cover ${
                     imageLoaded ? 'opacity-100' : 'opacity-0'
                   }`}
                   onLoad={() => setImageLoaded(true)}
@@ -116,7 +109,7 @@ function AboutSection() {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-violet-600 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg border-2 border-[#0d1224] transform group-hover:scale-110 transition-transform duration-300">
+              <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-violet-600 to-pink-600 text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg border-2 border-[#0d1224] transform group-hover:scale-110 transition-transform duration-300">
                 {personalData.designation}
               </div>
             </div>
