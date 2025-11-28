@@ -188,14 +188,17 @@ function Skills() {
         </div>
       </div>
 
-      <div className="flex justify-center my-5 lg:py-8">
-        <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-            Skills
+      <div className="flex flex-col items-center my-5 lg:py-8">
+        <div className="flex items-center mb-4">
+          <span className="w-16 sm:w-24 h-[2px] bg-gradient-to-r from-transparent to-[#1a1443]"></span>
+          <span className="bg-gradient-to-r from-[#1a1443] to-[#25213b] w-fit text-white p-2 px-6 sm:px-8 text-xl sm:text-2xl font-semibold rounded-lg border border-violet-500/30 shadow-lg shadow-violet-500/10">
+            Skills & Technologies
           </span>
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+          <span className="w-16 sm:w-24 h-[2px] bg-gradient-to-l from-transparent to-[#1a1443]"></span>
         </div>
+        <p className="text-gray-400 text-sm sm:text-base text-center max-w-2xl px-4">
+          Technologies I work with to build modern, scalable applications
+        </p>
       </div>
 
       <div className="w-full my-12 flex-grow flex items-center relative">
@@ -219,38 +222,44 @@ function Skills() {
 
         <div 
           ref={scrollContainerRef}
-          className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth"
+          className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth px-12 lg:px-16"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onScroll={handleScroll}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div ref={scrollContentRef} className="flex items-center">
+          <div ref={scrollContentRef} className="flex items-center gap-4 lg:gap-6">
             {/* Duplicate content for seamless infinite scroll */}
             {[...skillsData, ...skillsData].map((skill, id) => (
-              <div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
-                key={id}>
-                <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none shadow-gray-50 group-hover:border-violet-500 transition-all duration-500">
-                  <div className="flex -translate-y-[1px] justify-center">
-                    <div className="w-3/4">
-                      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center justify-center gap-3 p-6">
-                    <div className="h-8 sm:h-10">
+              <div 
+                className="min-w-[140px] sm:min-w-[160px] lg:min-w-[180px] h-fit flex flex-col items-center justify-center transition-all duration-300 rounded-xl group relative hover:scale-105 cursor-pointer"
+                key={id}
+              >
+                <div className="h-full w-full rounded-xl border-2 border-[#1f223c] bg-gradient-to-br from-[#11152c] to-[#0a0d37] shadow-lg shadow-black/50 group-hover:border-violet-500/80 group-hover:shadow-violet-500/20 transition-all duration-300 overflow-hidden relative">
+                  {/* Animated gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/0 to-pink-500/0 group-hover:from-violet-500/10 group-hover:to-pink-500/10 transition-all duration-300"></div>
+                  
+                  {/* Top accent line */}
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-violet-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  <div className="flex flex-col items-center justify-center gap-4 p-6 lg:p-8 relative z-10">
+                    <div className="h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20 flex items-center justify-center bg-[#0d1224]/50 rounded-xl group-hover:bg-[#0d1224]/80 transition-all duration-300 group-hover:scale-110">
                       <Image
                         src={skillsImage(skill)?.src}
                         alt={skill}
-                        width={40}
-                        height={40}
-                        className="h-full w-auto rounded-lg"
+                        width={60}
+                        height={60}
+                        className="h-full w-auto object-contain filter group-hover:brightness-110 transition-all duration-300"
                       />
                     </div>
-                    <p className="text-white text-sm sm:text-lg">
+                    <p className="text-white text-sm sm:text-base lg:text-lg font-medium group-hover:text-violet-300 transition-colors duration-300">
                       {skill}
                     </p>
                   </div>
+                  
+                  {/* Bottom glow effect */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-violet-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
             ))}
