@@ -490,7 +490,9 @@ body.is-folders .hero {
 .doing__copy {
   position: absolute;
   top: 24%;
-  left: clamp(4.2rem, 8vw, 7rem);
+  left: auto;
+  right: calc(4vw + 78dvh + 6.5rem);
+  width: max-content;
   z-index: 3;
   color: #1c1c1c;
   font-family: "Chewy", "Comic Sans MS", "Chalkboard SE", cursive;
@@ -535,16 +537,16 @@ body.is-folders .hero {
 }
 
 .doing.is-live .vibe--big .burst i {
-  animation: ray-pop 0.42s cubic-bezier(0.2, 1.45, 0.35, 1) forwards;
+  animation: ray-pop 0.42s cubic-bezier(0.2, 1.45, 0.35, 1) both;
 }
 
-.doing.is-live .vibe--big .burst i:nth-child(1) { animation-delay: 0.5s; }
-.doing.is-live .vibe--big .burst i:nth-child(2) { animation-delay: 0.62s; }
-.doing.is-live .vibe--big .burst i:nth-child(3) { animation-delay: 0.74s; }
-.doing.is-live .vibe--big .burst i:nth-child(4) { animation-delay: 0.86s; }
+.doing.is-live .vibe--big .burst i:nth-child(1) { animation-delay: 1.5s; }
+.doing.is-live .vibe--big .burst i:nth-child(2) { animation-delay: 1.62s; }
+.doing.is-live .vibe--big .burst i:nth-child(3) { animation-delay: 1.74s; }
+.doing.is-live .vibe--big .burst i:nth-child(4) { animation-delay: 1.86s; }
 
 .doing.is-live .vibe__arrow {
-  animation: arrow-in 0.45s 0.5s cubic-bezier(0.2, 1.4, 0.35, 1) forwards;
+  animation: arrow-in 0.45s 1.5s cubic-bezier(0.2, 1.4, 0.35, 1) forwards;
 }
 
 @keyframes arrow-in {
@@ -671,10 +673,10 @@ body.is-folders .hero {
   animation: tag-in 0.45s cubic-bezier(0.2, 1.45, 0.35, 1) forwards;
 }
 
-.doing.is-live .tag--about { animation-delay: 0.5s; }
-.doing.is-live .tag--skills { animation-delay: 0.62s; }
-.doing.is-live .tag--education { animation-delay: 0.74s; }
-.doing.is-live .tag--projects { animation-delay: 0.86s; }
+.doing.is-live .tag--about { animation-delay: 1.5s; }
+.doing.is-live .tag--skills { animation-delay: 1.62s; }
+.doing.is-live .tag--education { animation-delay: 1.74s; }
+.doing.is-live .tag--projects { animation-delay: 1.86s; }
 
 @keyframes tag-in {
   from {
@@ -713,16 +715,12 @@ body.is-folders .hero {
   fill: none;
 }
 
-.note--pink {
-  color: #ff4f93;
-}
-
-.note:nth-child(1) { left: 44%; top: 7%; --tilt: -16deg; --dur: 2.6s; }
-.note:nth-child(2) { left: 74%; top: 5%; width: clamp(2.4rem, 8vh, 4.2rem); --tilt: 8deg; --dur: 3.1s; }
-.note:nth-child(3) { left: 93%; top: 18%; --tilt: 14deg; --dur: 2.4s; }
-.note:nth-child(4) { left: 90%; top: 42%; --tilt: -10deg; --dur: 2.9s; }
-.note:nth-child(5) { left: 92%; top: 60%; width: clamp(2.2rem, 7vh, 3.8rem); --tilt: 6deg; --dur: 3.3s; }
-.note:nth-child(6) { left: 93%; top: 78%; --tilt: -20deg; --dur: 2.7s; }
+.note:nth-child(1) { left: 44%; top: 7%; width: clamp(1.15rem, 3.2vh, 1.7rem); --tilt: -16deg; --dur: 2.6s; }
+.note:nth-child(2) { left: 74%; top: 5%; width: clamp(3.1rem, 10vh, 5.4rem); --tilt: 8deg; --dur: 3.1s; }
+.note:nth-child(3) { left: 93%; top: 18%; width: clamp(2rem, 6vh, 3.1rem); --tilt: 14deg; --dur: 2.4s; }
+.note:nth-child(4) { left: 90%; top: 42%; width: clamp(0.95rem, 2.4vh, 1.35rem); --tilt: -10deg; --dur: 2.9s; }
+.note:nth-child(5) { left: 92%; top: 60%; width: clamp(2.6rem, 8.2vh, 4.4rem); --tilt: 6deg; --dur: 3.3s; }
+.note:nth-child(6) { left: 93%; top: 78%; width: clamp(1.45rem, 4.2vh, 2.15rem); --tilt: -20deg; --dur: 2.7s; }
 
 .doing.is-live .note {
   animation:
@@ -897,6 +895,7 @@ body.is-folders .hero {
     top: 0.85rem;
     left: 1.6rem;
     right: 0.85rem;
+    width: auto;
   }
 
   .vibe--big {

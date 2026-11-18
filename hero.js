@@ -16,7 +16,7 @@ function playVideo() {
 }
 
 const hints = [...document.querySelectorAll(".hint")];
-const bursts = [...document.querySelectorAll(".burst")];
+const bursts = [...document.querySelectorAll(".hero__callout .burst")];
 const cta = document.querySelector(".line--cta");
 const hintAt = [3.35, 3.68, 4.02, 4.36];
 const talkStart = 2.15;
