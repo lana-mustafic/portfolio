@@ -377,57 +377,78 @@ body.is-folders .hero {
     transform: scale(1) rotate(var(--tilt));
   }
 }
-  0%,
-  100% {
-    transform: translate(0, -50%) scale(1);
-  }
-
-  50% {
-    transform: translate(0, -50%) scale(1.06);
-  }
-}
 
 @media (max-width: 800px) {
   .hero {
-    --stage: min(64vw, 100dvh, 100%);
+    --stage: 100%;
   }
 
   .hero__callout {
-    top: 2.8rem;
-    left: 1rem;
-  }
-
-  .hero__callout {
-    --name: 2.15rem;
+    top: 1.2rem;
+    bottom: auto;
+    left: 0.9rem;
+    right: 0.6rem;
+    --name: 1.95rem;
   }
 
   .line--name {
-    font-size: 2.15rem;
+    font-size: 1.95rem;
   }
 
   .line--role {
-    font-size: 1.35rem;
+    margin-left: 0.3rem;
+    font-size: 1.15rem;
   }
 
   .line--cta {
-    margin: 0.45rem 0 0 0.4rem;
-    font-size: 1.2rem;
+    margin: 0.35rem 0 0 0.3rem;
+    font-size: 1.05rem;
+  }
+
+  .line--cta svg {
+    width: 1.7em;
   }
 
   .hero__stage {
-    width: var(--stage);
-    height: var(--stage);
+    width: 100%;
+    height: 72dvh;
+  }
+
+  .hero__video {
+    object-fit: cover;
+    object-position: center 28%;
   }
 
   .hero__button,
   .hero__hints {
-    left: 102%;
-    width: 18%;
+    left: 70%;
+    top: 64%;
+    width: 22%;
+  }
+
+  .hint {
+    font-size: 0.82rem;
+  }
+
+  .hint--above {
+    left: -0.4rem;
+    bottom: 108%;
+  }
+
+  .hint--left {
+    right: 96%;
+    top: -0.2rem;
   }
 
   .hint--right {
-    right: -0.2rem;
-    top: -2.4rem;
+    right: auto;
+    left: 8%;
+    top: -2.35rem;
+  }
+
+  .hint--below {
+    left: -3.4rem;
+    top: 104%;
   }
 }
 
@@ -892,66 +913,105 @@ body.is-folders .hero {
 
 @media (max-width: 800px) {
   .doing__copy {
-    top: 0.85rem;
-    left: 1.6rem;
-    right: 0.85rem;
+    top: 2.7rem;
+    left: 0.85rem;
+    right: 0.7rem;
     width: auto;
   }
 
+  .vibe {
+    white-space: normal;
+  }
+
   .vibe--big {
-    font-size: 1.35rem;
+    font-size: 1.05rem;
   }
 
   .vibe__arrow {
-    left: 1.2rem;
+    left: 1.15rem;
+    width: 1.55rem;
   }
 
   .vibe--hey {
-    margin-left: 0.25rem;
-    font-size: 1.12rem;
+    margin-left: 0.15rem;
+    font-size: 0.98rem;
   }
 
   .doing__spot {
-    margin: 0.7rem 0 0 1.6rem;
+    width: 6.7rem;
+    margin: 2.55rem 0 0 4.4rem;
   }
 
   .tag {
-    font-size: 0.95rem;
+    font-size: 0.78rem;
+  }
+
+  .tag svg {
+    width: 1.3em;
   }
 
   .tag--about {
-    right: 78%;
-    bottom: -1.6rem;
+    right: 108%;
+    bottom: 18%;
+  }
+
+  .tag--about svg {
+    width: 1.55em;
   }
 
   .tag--skills {
-    left: 102%;
-    top: 0;
+    left: 110%;
+    top: 6%;
+  }
+
+  .tag--education {
+    left: -6%;
+    top: 112%;
   }
 
   .tag--projects {
     left: 62%;
-    top: 112%;
+    top: 116%;
+  }
+
+  .tag--projects svg {
+    width: 1.55em;
   }
 
   .doing__stage {
-    --size: min(68dvh, 100vw);
-    left: 50%;
+    width: 100%;
+    height: calc(100dvh - 19rem);
+    left: 0;
     right: auto;
-    transform: translateX(-50%);
+    transform: none;
   }
 
+  .doing__video {
+    object-fit: cover;
+    object-position: center 12%;
+  }
+
+  .doing__notes .note:nth-child(1) { left: 5%; top: 3%; width: 1.15rem; }
+  .doing__notes .note:nth-child(2) { left: 52%; top: 1%; width: 2.35rem; }
+  .doing__notes .note:nth-child(3) { left: 74%; top: 20%; width: 1.4rem; }
+  .doing__notes .note:nth-child(4) { left: 78%; top: 44%; width: 0.95rem; }
+  .doing__notes .note:nth-child(5) { left: 60%; top: 66%; width: 1.9rem; }
+  .doing__notes .note:nth-child(6) { left: 76%; top: 82%; width: 1.2rem; }
+
   .folders__back {
-    top: 1rem;
-    left: 1rem;
-    max-width: calc(100% - 2rem);
+    top: 0.85rem;
+    left: 0.85rem;
+    max-width: calc(100% - 1.7rem);
+    font-size: 1.2rem;
     text-align: left;
   }
 
   .folders__grid {
+    width: calc(100vw - 1.4rem);
+    margin-top: 2.6rem;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1rem;
-    padding: 1.5rem;
+    gap: 0.7rem 0.55rem;
+    padding: 0.35rem;
   }
 }
 
