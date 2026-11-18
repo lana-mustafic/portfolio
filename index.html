@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="bs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=50" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__callout">
+        <p class="line line--name">
+          <span class="burst burst--top" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </span>
+          I'm Lana,
+        </p>
+        <p class="line line--role">a <em>software engineer</em><span class="bang">!</span></p>
+        <p class="line line--cta">
+          Click the button!
+          <svg viewBox="0 0 72 36" aria-hidden="true">
+            <path d="M4 16c20 1 36 6 56 4" />
+            <path d="M46 6c8 7 12 10 16 10S54 24 46 32" />
+          </svg>
+        </p>
+      </div>
+      <div class="hero__stage">
+        <video
+          class="hero__video"
+          src="avatar.mp4?v=5"
+          width="2880"
+          height="2880"
+          muted
+          autoplay
+          playsinline
+          preload="auto"
+          disablepictureinpicture
+          disableremoteplayback
+        ></video>
+        <button class="hero__button" type="button" aria-label="Dugme">
+          <img src="button.png" alt="" width="453" height="479" draggable="false" />
+        </button>
+        <div class="hero__hints" aria-hidden="true">
+          <p class="hint hint--above">
+            <span class="hint__pop">
+              <span>click here</span>
+              <svg viewBox="0 0 48 56" aria-hidden="true"><path d="M24 4c1 12-1 22-2 36" /><path d="M10 28c6 8 12 14 14 14s8-6 14-14" /></svg>
+            </span>
+          </p>
+          <p class="hint hint--left">
+            <span class="hint__pop">
+              <span>here</span>
+              <svg viewBox="0 0 64 40" aria-hidden="true"><path d="M4 18c18 4 32 2 50 0" /><path d="M40 6c8 8 12 12 14 12s-6 6-14 14" /></svg>
+            </span>
+          </p>
+          <p class="hint hint--right">
+            <span class="hint__pop">
+              <svg viewBox="0 0 64 40" aria-hidden="true"><path d="M60 18c-18 4-32 2-50 0" /><path d="M24 6C16 14 12 18 10 18s6 6 14 14" /></svg>
+              <span>here</span>
+            </span>
+          </p>
+          <p class="hint hint--below">
+            <span class="hint__pop">
+              <svg viewBox="0 0 48 56" aria-hidden="true"><path d="M24 52c1-12-1-22-2-36" /><path d="M10 28c6-8 12-14 14-14s8 6 14 14" /></svg>
+              <span>click on the button</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </header>
+    <section class="folders" aria-label="Folderi" hidden>
+      <button class="folders__back" type="button">&lt;- See what Lana is doing...</button>
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+        <symbol id="folder" viewBox="0 0 460 340">
+          <path d="M92 92h286a8 8 0 0 1 8 8v62a8 8 0 0 1-8 8H100a8 8 0 0 1-8-8V100a8 8 0 0 1 8-8z" fill="#f3e4c8" stroke="#1c1c1c" stroke-width="8" stroke-linejoin="round" />
+          <path d="M92 108h268a8 8 0 0 1 8 8v52a8 8 0 0 1-8 8H100a8 8 0 0 1-8-8v-52a8 8 0 0 1 8-8z" fill="#fff6e6" stroke="#1c1c1c" stroke-width="8" stroke-linejoin="round" />
+          <path d="M92 124h214l20 16h62a8 8 0 0 1 8 8v36a8 8 0 0 1-8 8H100a8 8 0 0 1-8-8v-52a8 8 0 0 1 8-8z" fill="#fffdf8" stroke="#1c1c1c" stroke-width="8" stroke-linejoin="round" />
+          <path d="M40 118h146c18 0 24 12 36 26h196a28 28 0 0 1 28 28v122a30 30 0 0 1-30 30H64a30 30 0 0 1-30-30V144a26 26 0 0 1 26-26z" fill="currentColor" stroke="#1c1c1c" stroke-width="9" stroke-linejoin="round" />
+          <path d="M28 188c86-46 170-24 230-6 46 14 104 8 174 6v104a32 32 0 0 1-32 32H60a32 32 0 0 1-32-32z" fill="currentColor" stroke="#1c1c1c" stroke-width="9" stroke-linejoin="round" />
+          <path d="M62 132c28-6 62-6 96 2" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity="0.75" />
+          <path d="M52 214c78 22 168 26 268 6" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" opacity="0.5" />
+          <path d="M64 252c92 16 188 10 270-10" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" opacity="0.28" />
+          <path d="M48 300h364" fill="none" stroke="#000" stroke-width="18" stroke-linecap="round" opacity="0.1" />
+        </symbol>
+      </svg>
+      <div class="folders__grid">
+        <div class="folder folder--blue">
+          <div class="folder__face">
+            <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
+            <p class="folder__label"><span>01</span>About</p>
+          </div>
+        </div>
+        <div class="folder folder--pink">
+          <div class="folder__face">
+            <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
+            <p class="folder__label"><span>02</span>Skills</p>
+          </div>
+        </div>
+        <div class="folder folder--mint">
+          <div class="folder__face">
+            <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
+            <p class="folder__label"><span>03</span>Projects</p>
+          </div>
+        </div>
+        <div class="folder folder--lilac">
+          <div class="folder__face">
+            <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
+            <p class="folder__label"><span>04</span>Education</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="doing" hidden>
+      <div class="doing__copy">
+        <p class="vibe vibe--big">
+          <span class="burst burst--top" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          Kinda busy vibing right now...
+        </p>
+        <p class="vibe vibe--hey">
+          But hey, <em>click the button</em>!
+          <svg class="vibe__arrow" viewBox="0 0 48 64" aria-hidden="true">
+            <path d="M20 4c2 14 6 28 14 42" />
+            <path d="M16 32c8 8 14 12 18 14" />
+            <path d="M34 30c2 8 0 16-2 20" />
+          </svg>
+        </p>
+        <div class="doing__spot">
+          <button class="doing__button" type="button" aria-label="Dugme">
+            <img src="button.png" alt="" width="453" height="479" draggable="false" />
+          </button>
+          <div class="tags" aria-hidden="true">
+            <p class="tag tag--about">
+              <span>about</span>
+              <svg viewBox="0 0 52 44"><path d="M6 36c14-2 26-14 38-28" /><path d="M30 8c6 2 12 3 16 0" /><path d="M44 6c-1 7-4 13-9 17" /></svg>
+            </p>
+            <p class="tag tag--education">
+              <svg viewBox="0 0 40 48"><path d="M20 44c1-14 0-24-1-36" /><path d="M8 18c5-7 10-11 13-11s7 4 12 11" /></svg>
+              <span>education</span>
+            </p>
+            <p class="tag tag--skills">
+              <svg viewBox="0 0 56 36"><path d="M52 18C34 16 20 18 6 18" /><path d="M18 8C12 12 8 16 6 18s6 6 12 10" /></svg>
+              <span>skills</span>
+            </p>
+            <p class="tag tag--projects">
+              <svg viewBox="0 0 52 44"><path d="M46 36C32 34 20 22 8 8" /><path d="M22 8C16 10 10 11 6 8" /><path d="M8 6c1 7 4 13 9 17" /></svg>
+              <span>projects</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="doing__stage">
+        <video
+          class="doing__video"
+          src="doing.mp4?v=3"
+          width="2880"
+          height="2880"
+          muted
+          loop
+          playsinline
+          preload="auto"
+          disablepictureinpicture
+          disableremoteplayback
+        ></video>
+        <div class="doing__notes" aria-hidden="true">
+          <svg class="note note--pink" viewBox="0 0 44 68">
+            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-24 14 54)" />
+            <path d="M23 52V12c9 6 16 7 18 2" />
+          </svg>
+          <svg class="note" viewBox="0 0 72 68">
+            <ellipse cx="14" cy="54" rx="10" ry="7.5" transform="rotate(-20 14 54)" />
+            <ellipse cx="52" cy="50" rx="10" ry="7.5" transform="rotate(-20 52 50)" />
+            <path d="M22 52V16M60 48V12" />
+            <path d="M22 16c12-6 26-6 38-2" />
+          </svg>
+          <svg class="note note--pink" viewBox="0 0 44 68">
+            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-18 14 54)" />
+            <path d="M23 52V11c8 7 15 8 17 3" />
+          </svg>
+          <svg class="note" viewBox="0 0 44 68">
+            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-28 14 54)" />
+            <path d="M23 52V13c10 5 16 6 18 1" />
+          </svg>
+          <svg class="note note--pink" viewBox="0 0 72 68">
+            <ellipse cx="14" cy="54" rx="10" ry="7.5" transform="rotate(-16 14 54)" />
+            <ellipse cx="52" cy="49" rx="10" ry="7.5" transform="rotate(-16 52 49)" />
+            <path d="M22 52V15M60 47V10" />
+            <path d="M22 15c12-5 26-6 38-1" />
+          </svg>
+          <svg class="note" viewBox="0 0 44 68">
+            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-12 14 54)" />
+            <path d="M23 52V12c8 6 15 7 17 2" />
+          </svg>
+        </div>
+      </div>
+    </section>
+    <script src="hero.js?v=26"></script>
+  </body>
+</html>
