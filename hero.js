@@ -106,6 +106,35 @@ document.querySelector(".doing__button").addEventListener("click", (event) => {
   openFolders(event.currentTarget);
 });
 
+const sheet = document.querySelector(".sheet");
+const sheetName = document.querySelector(".sheet__name");
+const pageNames = {
+  about: "About",
+  skills: "Skills",
+  projects: "Projects",
+  education: "Education",
+};
+
+function openSheet(id) {
+  if (!pageNames[id]) return;
+  sheet.dataset.page = id;
+  sheetName.textContent = pageNames[id];
+  sheet.hidden = false;
+}
+
+document.querySelectorAll(".folder").forEach((folder) => {
+  folder.addEventListener("click", () => openSheet(folder.dataset.page));
+  folder.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openSheet(folder.dataset.page);
+  });
+});
+
+document.querySelector(".sheet__home").addEventListener("click", () => {
+  sheet.hidden = true;
+});
+
 document.querySelector(".folders__back").addEventListener("click", () => {
   video.pause();
   doing.hidden = false;

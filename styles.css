@@ -526,7 +526,8 @@ body.is-folders .hero {
 }
 
 .doing[hidden],
-.folders[hidden] {
+.folders[hidden],
+.sheet[hidden] {
   display: none !important;
 }
 
@@ -956,6 +957,95 @@ body.is-folders .hero {
 
 .folder--lilac {
   color: #d4c4f2;
+}
+
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  background: #f6f0e6;
+  overflow: auto;
+}
+
+.sheet__bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: clamp(0.95rem, 2.2vw, 1.55rem) clamp(1rem, 3vw, 2.3rem) 0;
+  background: #f6f0e6;
+}
+
+.sheet__crumb {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  color: #1c1c1c;
+  font-family: "Chewy", "Comic Sans MS", "Chalkboard SE", cursive;
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.sheet__home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sheet__home:hover {
+  transform: scale(1.04);
+}
+
+.sheet__folder {
+  display: block;
+  width: clamp(2.15rem, 3.4vw, 2.75rem);
+  height: auto;
+  flex: none;
+}
+
+.sheet[data-page="about"] .sheet__folder {
+  color: #8ecaf2;
+}
+
+.sheet[data-page="skills"] .sheet__folder {
+  color: #f6c6d6;
+}
+
+.sheet[data-page="projects"] .sheet__folder {
+  color: #b7e3c9;
+}
+
+.sheet[data-page="education"] .sheet__folder {
+  color: #d4c4f2;
+}
+
+.sheet__folder-tab {
+  fill: color-mix(in srgb, currentColor 72%, white);
+}
+
+.sheet__folder-body {
+  fill: currentColor;
+}
+
+.sheet__sep,
+.sheet__name {
+  transform: translateY(0.04em);
+}
+
+.sheet__rule {
+  height: 5px;
+  margin: 0.55rem 0 0;
+  border-radius: 999px;
+  background: #1c1c1c;
 }
 
 @media (max-width: 800px) {

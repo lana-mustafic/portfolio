@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=94" />
+    <link rel="stylesheet" href="styles.css?v=95" />
   </head>
   <body>
     <header class="hero">
@@ -95,25 +95,25 @@
         </symbol>
       </svg>
       <div class="folders__grid">
-        <div class="folder folder--blue">
+        <div class="folder folder--blue" data-page="about" role="button" tabindex="0">
           <div class="folder__face">
             <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
             <p class="folder__label"><span>01</span>About</p>
           </div>
         </div>
-        <div class="folder folder--pink">
+        <div class="folder folder--pink" data-page="skills" role="button" tabindex="0">
           <div class="folder__face">
             <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
             <p class="folder__label"><span>02</span>Skills</p>
           </div>
         </div>
-        <div class="folder folder--mint">
+        <div class="folder folder--mint" data-page="projects" role="button" tabindex="0">
           <div class="folder__face">
             <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
             <p class="folder__label"><span>03</span>Projects</p>
           </div>
         </div>
-        <div class="folder folder--lilac">
+        <div class="folder folder--lilac" data-page="education" role="button" tabindex="0">
           <div class="folder__face">
             <svg viewBox="0 0 460 340" aria-hidden="true"><use href="#folder" /></svg>
             <p class="folder__label"><span>04</span>Education</p>
@@ -204,6 +204,22 @@
         </div>
       </div>
     </section>
-    <script src="hero.js?v=27"></script>
+    <section class="sheet" data-page="about" hidden>
+      <header class="sheet__bar">
+        <div class="sheet__crumb">
+          <button class="sheet__home" type="button">
+            <svg class="sheet__folder" viewBox="0 0 72 54" aria-hidden="true">
+              <path class="sheet__folder-tab" d="M8 20V15.5A5.5 5.5 0 0 1 13.5 10H28l7 8H8z" />
+              <path class="sheet__folder-body" d="M4 19h64a5 5 0 0 1 5 5v20a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V21a2 2 0 0 1 2-2z" />
+            </svg>
+            Home
+          </button>
+          <span class="sheet__sep" aria-hidden="true">&gt;</span>
+          <span class="sheet__name">About</span>
+        </div>
+        <div class="sheet__rule"></div>
+      </header>
+    </section>
+    <script src="hero.js?v=28"></script>
   </body>
 </html>
