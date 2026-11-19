@@ -1048,6 +1048,42 @@ body.is-folders .hero {
   background: #1c1c1c;
 }
 
+.sheet__skills {
+  display: none;
+  justify-content: center;
+  padding: 1.15rem 1rem 1.4rem;
+}
+
+.sheet[data-page="skills"] .sheet__skills {
+  display: flex;
+}
+
+.shelf {
+  position: relative;
+  width: min(32rem, 88vw, calc((100dvh - 8rem) * 950 / 1024));
+}
+
+.shelf__board {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.shelf__item {
+  position: absolute;
+  height: 15%;
+  width: auto;
+  bottom: 79.7%;
+}
+
+.shelf__item--angular {
+  left: 31%;
+}
+
+.shelf__item--dotnet {
+  left: 52.2%;
+}
+
 @media (max-width: 800px) {
   .doing__copy {
     top: 2.7rem;
