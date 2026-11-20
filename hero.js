@@ -66,45 +66,27 @@ video.addEventListener("ended", () => {
 
 const folders = document.querySelector(".folders");
 const doing = document.querySelector(".doing");
-const doingVideo = document.querySelector(".doing__video");
-
-doingVideo.muted = true;
-doingVideo.defaultMuted = true;
-doingVideo.volume = 0;
-doingVideo.loop = true;
-
-function playDoing() {
-  if (motion.matches) return;
-
-  doingVideo.currentTime = 0;
-  const play = doingVideo.play();
-  if (play && typeof play.catch === "function") {
-    play.catch(() => {});
-  }
-}
 
 function openFolders(button) {
   const rect = button.getBoundingClientRect();
   folders.style.setProperty("--open-x", `${rect.left + rect.width / 2}px`);
   folders.style.setProperty("--open-y", `${rect.top + rect.height / 2}px`);
   folders.hidden = false;
+  folders.classList.add("is-open");
   document.body.classList.add("is-folders");
   video.pause();
-  doingVideo.pause();
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      folders.classList.add("is-open");
-    });
-  });
 }
 
-document.querySelector(".hero__button").addEventListener("click", (event) => {
-  openFolders(event.currentTarget);
-});
+const heroButton = document.querySelector(".hero__button");
 
-document.querySelector(".doing__button").addEventListener("click", (event) => {
-  openFolders(event.currentTarget);
-});
+function pressHeroButton(event) {
+  if (!stage.classList.contains("is-done")) return;
+  event.preventDefault();
+  openFolders(heroButton);
+}
+
+heroButton.addEventListener("pointerup", pressHeroButton);
+heroButton.addEventListener("click", pressHeroButton);
 
 const sheet = document.querySelector(".sheet");
 const sheetName = document.querySelector(".sheet__name");
@@ -133,17 +115,26 @@ document.querySelectorAll(".folder").forEach((folder) => {
 
 document.querySelector(".sheet__home").addEventListener("click", () => {
   sheet.hidden = true;
+  if (typeof closeWork === "function") closeWork();
 });
 
-document.querySelector(".folders__back").addEventListener("click", () => {
+document.querySelectorAll("[data-jump]").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("[data-jump]").forEach((item) => item.classList.remove("is-on"));
+    button.classList.add("is-on");
+    document.getElementById(button.dataset.jump)?.scrollIntoView({ block: "start" });
+  });
+});
+
+function openContact() {
   video.pause();
+  sheet.hidden = true;
+  if (typeof closeWork === "function") closeWork();
+  if (typeof closeWin === "function") closeWin();
   doing.hidden = false;
-  doing.classList.remove("is-live");
   requestAnimationFrame(() => {
     doing.classList.add("is-open");
-    requestAnimationFrame(() => doing.classList.add("is-live"));
   });
-  playDoing();
   folders.classList.remove("is-open");
 
   const hideFolders = (event) => {
@@ -153,13 +144,197 @@ document.querySelector(".folders__back").addEventListener("click", () => {
     folders.removeEventListener("transitionend", hideFolders);
   };
 
-  if (motion.matches) {
+  if (motion.matches || folders.hidden) {
     hideFolders();
     return;
   }
 
   folders.addEventListener("transitionend", hideFolders);
+}
+
+document.querySelectorAll(".go-contact").forEach((button) => {
+  button.addEventListener("click", openContact);
+});
+
+const messageWindow = document.querySelector(".ms-msg");
+const messageForm = document.querySelector(".ms-msg__form");
+const messageNote = document.querySelector(".ms-msg__note");
+const emailAddress = "lana-mustafic@outlook.com";
+
+function showHome() {
+  doing.classList.remove("is-open");
+  doing.hidden = true;
+  folders.classList.remove("is-open");
+  folders.hidden = true;
+  document.body.classList.remove("is-folders");
+}
+
+document.querySelector(".doing__back").addEventListener("click", () => {
+  doing.classList.remove("is-open");
+  doing.hidden = true;
+  folders.hidden = false;
+  document.body.classList.add("is-folders");
+  folders.classList.add("is-open");
+});
+
+document.querySelector('[data-ms="message"]').addEventListener("click", () => {
+  messageNote.hidden = true;
+  messageWindow.scrollIntoView({ block: "nearest" });
+  messageForm.querySelector("input").focus();
+});
+
+document.querySelector('[data-ms="home"]').addEventListener("click", showHome);
+
+document.querySelector('[data-ms="copy"]').addEventListener("click", async () => {
+  const copied = document.querySelector(".ms__copied");
+  try {
+    await navigator.clipboard.writeText(emailAddress);
+  } catch {
+    const field = document.createElement("textarea");
+    field.value = emailAddress;
+    document.body.appendChild(field);
+    field.select();
+    document.execCommand("copy");
+    field.remove();
+  }
+  copied.hidden = false;
+});
+
+messageForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(messageForm);
+  const name = String(data.get("name") || "").trim();
+  const email = String(data.get("email") || "").trim();
+  const subjectText = String(data.get("subject") || "").trim();
+  const message = String(data.get("message") || "").trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  messageNote.hidden = false;
+  if (!name || !emailOk || !subjectText || !message) {
+    messageNote.textContent = "Fill in every field with a valid email.";
+    messageNote.className = "ms-msg__note is-error";
+    return;
+  }
+  const subject = encodeURIComponent(subjectText);
+  const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
+  window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+  messageNote.textContent = "Your email app opened. The message is not sent until you send it there.";
+  messageNote.className = "ms-msg__note is-ok";
+});
+
+const pcWin = document.querySelector(".pc__win");
+const pcTitle = document.querySelector(".pc__win-title");
+const like = document.querySelector(".like");
+const likeCount = document.querySelector(".like__count");
+
+let winTimer = 0;
+
+function closeWin() {
+  pcWin.classList.remove("is-open");
+  window.clearTimeout(winTimer);
+  winTimer = window.setTimeout(() => {
+    if (!pcWin.classList.contains("is-open")) pcWin.hidden = true;
+  }, 200);
+}
+
+function openWin(icon) {
+  window.clearTimeout(winTimer);
+  pcWin.dataset.tone = icon.dataset.tone || "pink";
+  pcTitle.textContent = icon.dataset.title;
+  pcWin.querySelectorAll(".pc__pane").forEach((pane) => {
+    pane.hidden = pane.dataset.pane !== icon.dataset.win;
+  });
+  pcWin.hidden = false;
+  pcWin.classList.add("is-open");
+}
+
+document.querySelectorAll(".pc__icon").forEach((icon) => {
+  icon.addEventListener("click", () => {
+    if (icon.dataset.go) {
+      closeWin();
+      openSheet(icon.dataset.go);
+      return;
+    }
+    openWin(icon);
+  });
+});
+
+document.querySelector(".pc__x").addEventListener("click", closeWin);
+document.querySelector(".sheet__home").addEventListener("click", closeWin);
+
+like.addEventListener("click", () => {
+  const on = like.classList.toggle("is-on");
+  like.setAttribute("aria-pressed", on ? "true" : "false");
+  likeCount.hidden = !on;
+});
+
+const workGrid = document.querySelector(".works");
+const workView = document.querySelector(".work-view");
+
+function closeWork() {
+  if (!workView || !workGrid) return;
+  workView.hidden = true;
+  workGrid.hidden = false;
+  workView.querySelectorAll("[data-project]").forEach((panel) => {
+    panel.hidden = true;
+  });
+}
+
+function openWork(id) {
+  workGrid.hidden = true;
+  workView.hidden = false;
+  workView.querySelectorAll("[data-project]").forEach((panel) => {
+    panel.hidden = panel.dataset.project !== id;
+  });
+  document.querySelector(".sheet").scrollTop = 0;
+}
+
+document.querySelectorAll(".work__more").forEach((button) => {
+  button.addEventListener("click", () => openWork(button.dataset.open));
+});
+
+document.querySelector(".work-view__back").addEventListener("click", closeWork);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  if (workView && !workView.hidden) closeWork();
+  else if (!pcWin.hidden) closeWin();
+});
+
+document.querySelectorAll(".fb-post").forEach((post) => {
+  const like = post.querySelector(".fb-like");
+  const react = post.querySelector(".fb-react");
+  const comment = post.querySelector(".fb-comment");
+  const composer = post.querySelector(".fb-composer");
+  const input = composer.querySelector("input");
+  const list = post.querySelector(".fb-comments");
+
+  like.addEventListener("click", () => {
+    const on = like.classList.toggle("is-on");
+    like.setAttribute("aria-pressed", on ? "true" : "false");
+    react.hidden = !on;
+  });
+
+  comment.addEventListener("click", () => {
+    const open = composer.hidden;
+    composer.hidden = !open;
+    comment.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) input.focus();
+  });
+
+  composer.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+    const line = document.createElement("p");
+    const name = document.createElement("b");
+    name.className = "fb-name";
+    name.textContent = "Lana";
+    line.append(name, document.createTextNode(" " + text));
+    list.append(line);
+    input.value = "";
+  });
 });
 
 playVideo();
 if (!video.paused) startWatch();
+window.setTimeout(showButton, 2600);

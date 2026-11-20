@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=102" />
+    <link rel="stylesheet" href="styles.css?v=163" />
   </head>
   <body>
     <header class="hero">
@@ -80,7 +80,12 @@
       </div>
     </header>
     <section class="folders" aria-label="Folderi" hidden>
-      <button class="folders__back" type="button">&lt;- See what Lana is doing...</button>
+      <button class="go-contact folders__back" type="button">
+        <span>Contact me</span>
+        <span class="go-contact__go" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 12h12M13 6l6 6-6 6" /></svg>
+        </span>
+      </button>
       <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
         <symbol id="folder" viewBox="0 0 460 340">
           <path d="M92 92h286a8 8 0 0 1 8 8v62a8 8 0 0 1-8 8H100a8 8 0 0 1-8-8V100a8 8 0 0 1 8-8z" fill="#f3e4c8" stroke="#1c1c1c" stroke-width="8" stroke-linejoin="round" />
@@ -122,114 +127,562 @@
       </div>
     </section>
     <section class="doing" hidden>
-      <div class="doing__copy">
-        <p class="vibe vibe--big">
-          <span class="burst burst--top" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-          Kinda busy vibing right now...
-        </p>
-        <p class="vibe vibe--hey">
-          But hey, <em>click the button</em>!
-          <svg class="vibe__arrow" viewBox="0 0 48 64" aria-hidden="true">
-            <path d="M20 4c2 14 6 28 14 42" />
-            <path d="M16 32c8 8 14 12 18 14" />
-            <path d="M34 30c2 8 0 16-2 20" />
-          </svg>
-        </p>
-        <div class="doing__spot">
-          <button class="doing__button" type="button" aria-label="Dugme">
-            <img src="button.png" alt="" width="453" height="479" draggable="false" />
-          </button>
-          <div class="tags" aria-hidden="true">
-            <p class="tag tag--about">
-              <span>about</span>
-              <svg viewBox="0 0 52 44"><path d="M6 36c14-2 26-14 38-28" /><path d="M30 8c6 2 12 3 16 0" /><path d="M44 6c-1 7-4 13-9 17" /></svg>
-            </p>
-            <p class="tag tag--education">
-              <svg viewBox="0 0 40 48"><path d="M20 44c1-14 0-24-1-36" /><path d="M8 18c5-7 10-11 13-11s7 4 12 11" /></svg>
-              <span>education</span>
-            </p>
-            <p class="tag tag--skills">
-              <svg viewBox="0 0 56 36"><path d="M52 18C34 16 20 18 6 18" /><path d="M18 8C12 12 8 16 6 18s6 6 12 10" /></svg>
-              <span>skills</span>
-            </p>
-            <p class="tag tag--projects">
-              <svg viewBox="0 0 52 44"><path d="M46 36C32 34 20 22 8 8" /><path d="M22 8C16 10 10 11 6 8" /><path d="M8 6c1 7 4 13 9 17" /></svg>
-              <span>projects</span>
-            </p>
+      <button class="doing__back" type="button">&lt;- Back</button>
+      <div class="ms-page">
+      <div class="ms">
+        <div class="ms__top">
+          <div class="ms__who">
+            <h1 class="ms__name">Lana!!</h1>
+            <div class="ms__pic">
+              <img src="lana-profile.jpg" alt="Lana" />
+            </div>
+            <p class="ms__mood">Mood: creative ☺</p>
+          </div>
+          <div class="ms__bio">
+            <p class="ms__kicker">It's All About Me</p>
+            <p class="ms__role">Software Engineering Student</p>
+            <p class="ms__blurb">Creating things, exploring ideas and constantly learning something new.</p>
+            <p class="ms__now"><b>Currently:</b> Open to new opportunities</p>
           </div>
         </div>
+        <section class="ms__box">
+          <h2>Contacting Lana!</h2>
+          <div class="ms__panel">
+            <button class="ms__action" type="button" data-ms="message">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3" width="14" height="10" fill="#ffe680" stroke="#003399"/><path d="M1 4l7 5 7-5" fill="none" stroke="#003399"/></svg>
+              Send Message
+            </button>
+            <a class="ms__action" href="https://linkedin.com/in/lana-mustafic" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="5" cy="4" r="2" fill="#003399"/><path d="M2 13c0-2.2 1.3-3.4 3-3.4S8 10.8 8 13" fill="#003399"/><rect x="9" y="7" width="5" height="6" fill="#6699cc" stroke="#003399"/></svg>
+              Connect on LinkedIn
+            </a>
+            <a class="ms__action" href="https://github.com/lana-mustafic" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="9" fill="#d9e6f5" stroke="#003399"/><path d="M2 6h12M5 12v2M11 12v2M4 14h8" fill="none" stroke="#003399"/></svg>
+              Visit GitHub
+            </a>
+            <a class="ms__action" href="mailto:lana-mustafic@outlook.com">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3" width="14" height="10" fill="#fff" stroke="#003399"/><path d="M1 4l7 5 7-5" fill="none" stroke="#003399"/></svg>
+              Email Me
+            </a>
+            <button class="ms__action" type="button" data-ms="copy">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="9" height="11" fill="#fff" stroke="#003399"/><rect x="2" y="1" width="9" height="11" fill="#fff" stroke="#003399"/></svg>
+              Copy Email
+              <span class="ms__copied" hidden>Copied</span>
+            </button>
+            <button class="ms__action" type="button" data-ms="home">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8 L8 2 L14 8 V14 H10 V10 H6 V14 H2 Z" fill="#ffe680" stroke="#003399"/></svg>
+              Visit Portfolio
+            </button>
+          </div>
+        </section>
+        <section class="ms__url">
+          <p>My Portfolio URL:</p>
+          <a href="https://portfolio-lana-mustafic.vercel.app/">https://portfolio-lana-mustafic.vercel.app/</a>
+        </section>
       </div>
-      <div class="doing__stage">
-        <video
-          class="doing__video"
-          src="doing.mp4?v=3"
-          width="2880"
-          height="2880"
-          muted
-          loop
-          playsinline
-          preload="auto"
-          disablepictureinpicture
-          disableremoteplayback
-        ></video>
-        <div class="doing__notes" aria-hidden="true">
-          <svg class="note" viewBox="0 0 44 68">
-            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-24 14 54)" />
-            <path d="M23 52V12c9 6 16 7 18 2" />
-          </svg>
-          <svg class="note" viewBox="0 0 72 68">
-            <ellipse cx="14" cy="54" rx="10" ry="7.5" transform="rotate(-20 14 54)" />
-            <ellipse cx="52" cy="50" rx="10" ry="7.5" transform="rotate(-20 52 50)" />
-            <path d="M22 52V16M60 48V12" />
-            <path d="M22 16c12-6 26-6 38-2" />
-          </svg>
-          <svg class="note" viewBox="0 0 44 68">
-            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-18 14 54)" />
-            <path d="M23 52V11c8 7 15 8 17 3" />
-          </svg>
-          <svg class="note" viewBox="0 0 44 68">
-            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-28 14 54)" />
-            <path d="M23 52V13c10 5 16 6 18 1" />
-          </svg>
-          <svg class="note" viewBox="0 0 72 68">
-            <ellipse cx="14" cy="54" rx="10" ry="7.5" transform="rotate(-16 14 54)" />
-            <ellipse cx="52" cy="49" rx="10" ry="7.5" transform="rotate(-16 52 49)" />
-            <path d="M22 52V15M60 47V10" />
-            <path d="M22 15c12-5 26-6 38-1" />
-          </svg>
-          <svg class="note" viewBox="0 0 44 68">
-            <ellipse cx="14" cy="54" rx="11" ry="8" transform="rotate(-12 14 54)" />
-            <path d="M23 52V12c8 6 15 7 17 2" />
-          </svg>
-        </div>
+      <div class="ms-msg" role="region" aria-labelledby="ms-msg-title">
+        <header class="ms-msg__bar">
+          <h2 id="ms-msg-title">New Message – Lana</h2>
+        </header>
+        <form class="ms-msg__form">
+          <label>
+            <span>Your Name</span>
+            <input type="text" name="name" maxlength="80" autocomplete="name" />
+          </label>
+          <label>
+            <span>Your Email</span>
+            <input type="email" name="email" maxlength="120" autocomplete="email" />
+          </label>
+          <label>
+            <span>Subject</span>
+            <input type="text" name="subject" maxlength="120" />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" maxlength="2000" rows="5"></textarea>
+          </label>
+          <p class="ms-msg__note" hidden></p>
+          <button class="ms-msg__send" type="submit">Send Message</button>
+        </form>
+      </div>
       </div>
     </section>
     <section class="sheet" data-page="about" hidden>
       <header class="sheet__bar">
-        <div class="sheet__crumb">
-          <button class="sheet__home" type="button">
-            <svg class="sheet__folder" viewBox="0 0 72 54" aria-hidden="true">
-              <path class="sheet__folder-tab" d="M8 20V15.5A5.5 5.5 0 0 1 13.5 10H28l7 8H8z" />
-              <path class="sheet__folder-body" d="M4 19h64a5 5 0 0 1 5 5v20a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V21a2 2 0 0 1 2-2z" />
-            </svg>
-            Home
+        <div class="sheet__row">
+          <div class="sheet__crumb">
+            <button class="sheet__home" type="button">
+              <svg class="sheet__folder" viewBox="0 0 72 54" aria-hidden="true">
+                <path class="sheet__folder-tab" d="M8 20V15.5A5.5 5.5 0 0 1 13.5 10H28l7 8H8z" />
+                <path class="sheet__folder-body" d="M4 19h64a5 5 0 0 1 5 5v20a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V21a2 2 0 0 1 2-2z" />
+              </svg>
+              Home
+            </button>
+            <span class="sheet__sep" aria-hidden="true">&gt;</span>
+            <span class="sheet__name">About</span>
+          </div>
+          <button class="go-contact" type="button">
+            <span>Contact me</span>
+            <span class="go-contact__go" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h12M13 6l6 6-6 6" /></svg>
+            </span>
           </button>
-          <span class="sheet__sep" aria-hidden="true">&gt;</span>
-          <span class="sheet__name">About</span>
         </div>
         <div class="sheet__rule"></div>
       </header>
+      <div class="about">
+        <div class="desk">
+          <ul class="desk__icons">
+            <li>
+              <svg viewBox="0 0 48 42" aria-hidden="true"><rect x="4" y="3" width="40" height="28" rx="3" fill="#f7b6d2" stroke="#1c1c1c" stroke-width="2"/><rect x="8" y="7" width="32" height="18" fill="#9eb6f5"/><rect x="8" y="7" width="16" height="18" fill="#f7b6d2"/><path d="M16 31h16l3 7H13z" fill="#d9d3ea" stroke="#1c1c1c" stroke-width="2"/></svg>
+              <span>my computer</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 42" aria-hidden="true"><path d="M14 6h16l6 6v24H14z" fill="#fff" stroke="#1c1c1c" stroke-width="2"/><path d="M30 6v6h6" fill="none" stroke="#1c1c1c" stroke-width="2"/><path d="M10 12h16l6 6v22H10z" fill="#f4f1ea" stroke="#1c1c1c" stroke-width="2"/><path d="M26 12v6h6" fill="none" stroke="#1c1c1c" stroke-width="2"/></svg>
+              <span>note111.doc</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 42" aria-hidden="true"><rect x="8" y="6" width="32" height="28" fill="#f7b6d2" stroke="#1c1c1c" stroke-width="2"/><circle cx="18" cy="16" r="3" fill="#fff"/></svg>
+              <span>Photo.jpg</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 48 42" aria-hidden="true"><rect x="8" y="6" width="32" height="28" fill="#8eaaef" stroke="#1c1c1c" stroke-width="2"/><circle cx="18" cy="16" r="3" fill="#fff"/></svg>
+              <span>Uni.jpg</span>
+            </li>
+          </ul>
+          <ul class="desk__files">
+            <li><svg viewBox="0 0 46 36" aria-hidden="true"><path d="M3 10h14l4 4h22v18H3z" fill="#f6c56b" stroke="#1c1c1c" stroke-width="2"/></svg><span>Stuff</span></li>
+            <li><svg viewBox="0 0 46 36" aria-hidden="true"><path d="M3 10h14l4 4h22v18H3z" fill="#f6c56b" stroke="#1c1c1c" stroke-width="2"/></svg><span>Documents</span></li>
+            <li><svg viewBox="0 0 46 36" aria-hidden="true"><path d="M3 10h14l4 4h22v18H3z" fill="#f3b15a" stroke="#1c1c1c" stroke-width="2"/></svg><span>Photos</span></li>
+            <li><svg viewBox="0 0 46 36" aria-hidden="true"><path d="M3 10h14l4 4h22v18H3z" fill="#f3b15a" stroke="#1c1c1c" stroke-width="2"/></svg><span>Memories</span></li>
+            <li class="desk__files-solo"><svg viewBox="0 0 46 36" aria-hidden="true"><path d="M3 10h14l4 4h22v18H3z" fill="#7f9eeb" stroke="#1c1c1c" stroke-width="2"/></svg><span>Folder</span></li>
+          </ul>
+          <article class="w95 w95--note">
+            <header class="w95__bar"><h2>Note</h2><span class="w95__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></header>
+            <div class="w95__pane">
+              <p>When I'm not staring at a screen, you'll probably find me at the gym, out running, or playing the piano. I've been playing since I was six, so music has been a pretty big part of my life for as long as I can remember.</p>
+              <span class="w95__rail" aria-hidden="true"></span>
+            </div>
+          </article>
+          <article class="w95 w95--main">
+            <header class="w95__bar"><span class="w95__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></header>
+            <div class="w95__tools">
+              <div class="w95__path">C:\User\Documents\About Me</div>
+              <div class="w95__search">Search...</div>
+            </div>
+            <div class="w95__pane">
+              <ul class="w95__grid">
+                <li><svg viewBox="0 0 46 36" aria-hidden="true"><path d="M3 10h14l4 4h22v18H3z" fill="#f6c56b" stroke="#1c1c1c" stroke-width="2"/></svg><span>Photos</span></li>
+                <li><svg viewBox="0 0 46 36" aria-hidden="true"><path d="M3 10h14l4 4h22v18H3z" fill="#e7b15a" stroke="#1c1c1c" stroke-width="2"/></svg><span>Folder</span></li>
+                <li><svg viewBox="0 0 46 36" aria-hidden="true"><rect x="4" y="6" width="38" height="26" fill="#f7b6d2" stroke="#1c1c1c" stroke-width="2"/></svg><span>Pink.jpg</span></li>
+                <li><svg viewBox="0 0 46 36" aria-hidden="true"><rect x="4" y="6" width="38" height="26" fill="#8eaaef" stroke="#1c1c1c" stroke-width="2"/></svg><span>Blue.jpg</span></li>
+                <li><svg viewBox="0 0 46 36" aria-hidden="true"><rect x="4" y="6" width="38" height="26" fill="#f3b15a" stroke="#1c1c1c" stroke-width="2"/></svg><span>Vluw.jpg</span></li>
+              </ul>
+              <div class="w95__copy">
+                <p>Hey! I'm Lana, a fourth-year Software Engineering student at the Faculty of Information Technologies in Mostar.</p>
+                <p>I've always liked creating things, figuring out how stuff works, and occasionally spending way too much time making small details just right. I'm definitely a perfectionist (sometimes more than I'd like to admit), but I guess that's part of the fun.</p>
+                <p>I got into programming because I liked the idea of being able to build something from scratch and actually see an idea come to life. Since then, I've explored quite a few areas, from web and mobile development to machine learning and IoT. I still have a long list of things I want to learn, and honestly, I don't think that list is ever going to get shorter. There's always something new to try, a different approach to explore, or a skill I want to get better at.</p>
+              </div>
+              <div class="w95__load">
+                <header class="w95__bar"><span class="w95__ctrl" aria-hidden="true"><i></i></span></header>
+                <p>Loading...</p>
+                <span class="w95__meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+              <span class="w95__rail" aria-hidden="true"></span>
+            </div>
+          </article>
+          <article class="w95 w95--nap">
+            <header class="w95__bar"><span class="w95__ctrl" aria-hidden="true"><i></i></span></header>
+            <div class="w95__pane">
+              <p>I'm still figuring things out, trying new things, making mistakes, and learning along the way. Anyway, that's me. Have a look around!</p>
+              <div class="w95__choices"><span>thanks</span><span>later</span></div>
+            </div>
+          </article>
+          <footer class="task">
+            <svg class="task__pie" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="#f7b6d2" stroke="#1c1c1c" stroke-width="2"/><path d="M16 16 L16 4 A12 12 0 0 1 27 20 Z" fill="#8eaaef" stroke="#1c1c1c" stroke-width="2"/></svg>
+            <span class="task__folders" aria-hidden="true">
+              <svg viewBox="0 0 28 20"><path d="M2 6h8l2 2h14v10H2z" fill="#f6c56b" stroke="#1c1c1c"/></svg>
+              <svg viewBox="0 0 28 20"><path d="M2 6h8l2 2h14v10H2z" fill="#f7b6d2" stroke="#1c1c1c"/></svg>
+              <svg viewBox="0 0 28 20"><path d="M2 6h8l2 2h14v10H2z" fill="#8eaaef" stroke="#1c1c1c"/></svg>
+              <svg viewBox="0 0 28 20"><path d="M2 6h8l2 2h14v10H2z" fill="#f7b6d2" stroke="#1c1c1c"/></svg>
+            </span>
+            <span class="task__search">Search... <b aria-hidden="true"></b></span>
+            <span class="task__clock"><b>12:00</b><small>Mon, 01/11</small></span>
+          </footer>
+        </div>
+      </div>
       <div class="sheet__skills">
-        <div class="shelf">
-          <img class="shelf__board" src="skills-shelf.jpg" alt="" width="950" height="1024" />
-          <img class="shelf__top" src="skill-top.png" alt="" width="704" height="240" />
-          <img class="shelf__item shelf__item--flutter" src="skill-flutter.png" alt="Flutter" width="594" height="594" />
-          <img class="shelf__item shelf__item--angular" src="skill-angular.png" alt="Angular" width="593" height="594" />
-          <img class="shelf__item shelf__item--dotnet" src="skill-dotnet.png" alt=".NET" width="593" height="594" />
-          <img class="shelf__item shelf__item--sql" src="skill-sql.png" alt="SQL" width="594" height="594" />
+        <div class="pc">
+          <svg class="pc__defs" aria-hidden="true">
+            <symbol id="pc-folder" viewBox="0 0 68 58">
+              <path fill="#e2b12a" d="M27 7h24c2.8 0 5 2.2 5 5v32c0 2.6-2.2 5-5 5H27V7z" />
+              <path fill="#efc44a" d="M27 7h11l5 7H27z" />
+              <path fill="#f6d56b" d="M8 15h31c2.2 3.2 5.2 5.2 9 6.2V47c0 2.5-2 4.6-4.6 4.6H12.4C10 51.6 8 49.5 8 47V15z" />
+              <path fill="#ffe7a6" d="M11 18h7v28h-7z" />
+            </symbol>
+          </svg>
+          <div class="pc__desk">
+            <button class="pc__icon pc__icon--lang" type="button" data-win="languages" data-title="Languages" data-tone="blue">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><use href="#pc-folder" /></svg>
+              <span>Languages</span>
+            </button>
+            <button class="pc__icon pc__icon--front" type="button" data-win="frontend" data-title="Frontend" data-tone="pink">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><use href="#pc-folder" /></svg>
+              <span>Frontend</span>
+            </button>
+            <button class="pc__icon pc__icon--back" type="button" data-win="backend" data-title="Backend" data-tone="lilac">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><use href="#pc-folder" /></svg>
+              <span>Backend</span>
+            </button>
+            <button class="pc__icon pc__icon--data" type="button" data-win="databases" data-title="Databases" data-tone="mint">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><use href="#pc-folder" /></svg>
+              <span>Databases</span>
+            </button>
+            <button class="pc__icon pc__icon--tools" type="button" data-win="tools" data-title="Tools" data-tone="butter">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><use href="#pc-folder" /></svg>
+              <span>Tools</span>
+            </button>
+            <button class="pc__icon pc__icon--bin" type="button" data-win="bin" data-title="Recycle Bin" data-tone="lilac">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><path d="M16 16h36l-3 32H19z" fill="#d7dbe3"/><path d="M14 16h40M27 10h14" fill="none" stroke="#f4f7fb" stroke-width="3" stroke-linecap="round"/></svg>
+              <span>Recycle Bin</span>
+            </button>
+            <button class="pc__icon pc__icon--go" type="button" data-go="projects">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><rect x="8" y="6" width="52" height="34" rx="3" fill="#eef6ff"/><rect x="12" y="10" width="44" height="24" fill="#9fd0f2"/><path d="M24 40h20l4 10H20z" fill="#d5e4f2"/></svg>
+              <span>My Projects</span>
+            </button>
+            <button class="pc__icon pc__icon--note" type="button" data-win="readme" data-title="README.txt" data-tone="cream">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><path d="M16 4h24l14 14v36H16z" fill="#fffdf8"/><path d="M40 4v14h14" fill="#e7eef6"/><path d="M24 30h24M24 37h18M24 44h14" fill="none" stroke="#7aa6d4" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>README.txt</span>
+            </button>
+          </div>
+          <div class="pc__win" hidden>
+            <header class="pc__win-bar">
+              <h3 class="pc__win-title"></h3>
+              <button class="pc__x" type="button" aria-label="Close window">×</button>
+            </header>
+            <div class="pc__pane" data-pane="languages" hidden>
+              <div class="pc__files">
+                <button class="chip" type="button" data-name="C#" data-blurb="The language I write most of my backend in."><img src="icons/csharp.svg" alt="" /><span>C#</span></button>
+                <button class="chip" type="button" data-name="Java" data-blurb="Another language I use when the work calls for it."><img src="icons/java.svg" alt="" /><span>Java</span></button>
+                <button class="chip" type="button" data-name="JavaScript" data-blurb="What makes the pages I build actually do something."><img src="icons/javascript.svg" alt="" /><span>JavaScript</span></button>
+                <button class="chip" type="button" data-name="TypeScript" data-blurb="JavaScript, with the types written down."><img src="icons/typescript.svg" alt="" /><span>TypeScript</span></button>
+                <button class="chip" type="button" data-name="Python" data-blurb="For scripting and the bits of data I poke at."><img src="icons/python.svg" alt="" /><span>Python</span></button>
+                <button class="chip" type="button" data-name="Dart" data-blurb="The language behind the Flutter apps I build."><img src="icons/dart.svg" alt="" /><span>Dart</span></button>
+                <button class="chip" type="button" data-name="SQL" data-blurb="How I ask a database for what I need."><span class="chip__pic" aria-hidden="true">SQL</span><span>SQL</span></button>
+              </div>
+            </div>
+            <div class="pc__pane" data-pane="frontend" hidden>
+              <div class="pc__files">
+                <button class="chip" type="button" data-name="Angular" data-blurb="The framework I use to put web apps together."><img src="icons/angular.svg" alt="" /><span>Angular</span></button>
+                <button class="chip" type="button" data-name="HTML" data-blurb="The bones of every page I make."><img src="icons/html5.svg" alt="" /><span>HTML</span></button>
+                <button class="chip" type="button" data-name="CSS" data-blurb="Layout, color, and the little details."><img src="icons/css3.svg" alt="" /><span>CSS</span></button>
+                <button class="chip" type="button" data-name="SCSS" data-blurb="CSS with variables, nesting, and a bit more structure."><img src="icons/sass.svg" alt="" /><span>SCSS</span></button>
+                <button class="chip" type="button" data-name="Bootstrap" data-blurb="When I want a layout up fast."><img src="icons/bootstrap.svg" alt="" /><span>Bootstrap</span></button>
+                <button class="chip" type="button" data-name="Tailwind CSS" data-blurb="Utility classes, right there in the markup."><img src="icons/tailwindcss.svg" alt="" /><span>Tailwind CSS</span></button>
+              </div>
+            </div>
+            <div class="pc__pane" data-pane="backend" hidden>
+              <div class="pc__files">
+                <button class="chip" type="button" data-name=".NET" data-blurb="The backend I reach for."><img src="icons/dotnet.svg" alt="" /><span>.NET</span></button>
+                <button class="chip" type="button" data-name="ASP.NET Core" data-blurb="How I build the web side of a .NET app."><span class="chip__pic" aria-hidden="true">ASP.NET</span><span>ASP.NET Core</span></button>
+                <button class="chip" type="button" data-name="Entity Framework Core" data-blurb="How I talk to the database from C#."><span class="chip__pic" aria-hidden="true">EF Core</span><span>Entity Framework Core</span></button>
+                <button class="chip" type="button" data-name="REST APIs" data-blurb="The way my apps hand data back and forth."><span class="chip__pic" aria-hidden="true">REST</span><span>REST APIs</span></button>
+                <button class="chip" type="button" data-name="JWT Authentication" data-blurb="How I keep a signed-in user signed in."><span class="chip__pic" aria-hidden="true">JWT</span><span>JWT Authentication</span></button>
+                <button class="chip" type="button" data-name="Clean Architecture" data-blurb="How I split a backend so each part stays in its own room."><span class="chip__pic" aria-hidden="true">Clean</span><span>Clean Architecture</span></button>
+              </div>
+            </div>
+            <div class="pc__pane" data-pane="databases" hidden>
+              <div class="pc__files">
+                <button class="chip" type="button" data-name="SQL Server" data-blurb="The database I use most with .NET."><img src="icons/microsoftsqlserver.svg" alt="" /><span>SQL Server</span></button>
+                <button class="chip" type="button" data-name="PostgreSQL" data-blurb="When the project wants Postgres instead."><img src="icons/postgresql.svg" alt="" /><span>PostgreSQL</span></button>
+              </div>
+            </div>
+            <div class="pc__pane" data-pane="tools" hidden>
+              <div class="pc__files">
+                <button class="chip" type="button" data-name="Git" data-blurb="How I keep track of what changed."><img src="icons/git.svg" alt="" /><span>Git</span></button>
+                <button class="chip" type="button" data-name="GitHub" data-blurb="Where the repos live."><img src="icons/github.svg" alt="" /><span>GitHub</span></button>
+                <button class="chip" type="button" data-name="Azure DevOps" data-blurb="Boards, repos, and pipelines when the project lives there."><img src="icons/azuredevops.svg" alt="" /><span>Azure DevOps</span></button>
+                <button class="chip" type="button" data-name="Docker" data-blurb="So an app runs the same wherever it goes."><img src="icons/docker.svg" alt="" /><span>Docker</span></button>
+                <button class="chip" type="button" data-name="Postman" data-blurb="Where I poke an API until it answers."><img src="icons/postman.svg" alt="" /><span>Postman</span></button>
+                <button class="chip" type="button" data-name="Visual Studio" data-blurb="The IDE I use for .NET."><img src="icons/visualstudio.svg" alt="" /><span>Visual Studio</span></button>
+                <button class="chip" type="button" data-name="VS Code" data-blurb="The editor I use for everything else."><img src="icons/vscode.svg" alt="" /><span>VS Code</span></button>
+              </div>
+            </div>
+            <div class="pc__pane pc__pane--note" data-pane="readme" hidden>
+              <div class="readme">
+                <p>Do you like my portfolio?</p>
+                <button class="like" type="button" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.82 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+                  <span>Like</span>
+                </button>
+                <span class="like__count" hidden><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.82 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg></i>1</span>
+              </div>
+            </div>
+            <div class="pc__pane pc__pane--note" data-pane="bin" hidden>
+              <p>No projects were harmed or deleted in the making of this portfolio.</p>
+            </div>
+          </div>
+          <footer class="pc__bar">
+            <span class="pc__start">lana</span>
+            <span class="pc__clock">12:00</span>
+          </footer>
+        </div>
+      </div>
+      <div class="sheet__edu">
+        <div class="fb-desk">
+          <nav class="fb-side" aria-label="Education">
+            <p class="fb-side__label">News Feed</p>
+            <button type="button" data-jump="edu-school">2021 · Gimnazija Konjic</button>
+            <button type="button" data-jump="edu-uni">2021 · FIT Mostar</button>
+            <button type="button" data-jump="edu-fit">2023 · Innovation competition</button>
+            <button type="button" data-jump="edu-ms">2023 · MS Community BiH</button>
+          </nav>
+          <div class="fb-feed">
+          <article class="fb-life" id="edu-school">
+            <div class="fb-life__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 8-4v6h2V8L12 3z"/><path d="M6 10.6v3.8c0 1.6 2.6 3.6 6 3.6s6-2 6-3.6v-3.8l-6 3-6-3z"/></svg>
+            </div>
+            <div>
+              <p><b class="fb-name">Lana</b> is feeling happy to announce that she graduated from Gimnazija Konjic!</p>
+              <time datetime="2021">2021</time>
+            </div>
+          </article>
+          <article class="fb-life" id="edu-uni">
+            <div class="fb-life__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2 3 7h18L12 2z"/><path d="M4 9h2v8H4zM9 9h2v8H9zM13 9h2v8h-2zM18 9h2v8h-2zM3 18h18v2H3z"/></svg>
+            </div>
+            <div>
+              <p><b class="fb-name">Lana</b> started studying Software Engineering at the Faculty of Information Technologies, University 'Džemal Bijedić' of Mostar.</p>
+              <time datetime="2021">2021</time>
+            </div>
+          </article>
+          <article class="fb-post" id="edu-fit">
+            <header class="fb-post__head">
+              <span class="fb-avatar" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20"/><circle cx="20" cy="16" r="6" class="fb-avatar__person"/><path class="fb-avatar__person" d="M8 34c1.8-6.2 5.6-9 12-9s10.2 2.8 12 9"/></svg>
+              </span>
+              <div>
+                <b class="fb-name">Lana</b>
+                <time datetime="2023">2023 <svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1"/><path d="M6 1.2v9.6M1.4 6h9.2M2.2 3.4c1.1.7 2.4 1 3.8 1s2.7-.3 3.8-1M2.2 8.6c1.1-.7 2.4-1 3.8-1s2.7.3 3.8 1" fill="none" stroke="currentColor" stroke-width=".8"/></svg></time>
+              </div>
+            </header>
+            <p class="fb-post__text">FIT UNMO in the final of one of the world's most prestigious technology innovation competitions.</p>
+            <figure class="fb-photo">
+              <img src="education/fit-unmo.jpg" alt="FIT UNMO competition">
+              <span class="fb-photo__hint">Add photo</span>
+            </figure>
+            <div class="fb-react" hidden>
+              <i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 15h3V7H1v8zm14-8c0-.8-.7-1.4-1.5-1.4H9.4l.6-2.8.1-.3c0-.3-.1-.6-.3-.8L8.4 0 4.2 4.2C4 4.5 3.8 4.8 3.8 5.2v6.2c0 .8.6 1.4 1.4 1.4h6.2c.6 0 1.1-.4 1.3-.9l2.1-4.8c.1-.2.1-.3.2-.5V7z"/></svg></i>
+              <span>You like this.</span>
+            </div>
+            <div class="fb-actions">
+              <button class="fb-like" type="button" aria-pressed="false">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 15h3V7H1v8zm14-8c0-.8-.7-1.4-1.5-1.4H9.4l.6-2.8.1-.3c0-.3-.1-.6-.3-.8L8.4 0 4.2 4.2C4 4.5 3.8 4.8 3.8 5.2v6.2c0 .8.6 1.4 1.4 1.4h6.2c.6 0 1.1-.4 1.3-.9l2.1-4.8c.1-.2.1-.3.2-.5V7z"/></svg>
+                Like
+              </button>
+              <button class="fb-comment" type="button" aria-expanded="false">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2C4.1 1.2 1 3.8 1 7c0 1.7.9 3.2 2.3 4.2L2.6 14l3.2-1.5c.7.2 1.4.3 2.2.3 3.9 0 7-2.6 7-5.8s-3.1-5.8-7-5.8z"/></svg>
+                Comment
+              </button>
+            </div>
+            <div class="fb-comments"></div>
+            <form class="fb-composer" hidden>
+              <span class="fb-avatar fb-avatar--sm" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20"/><circle cx="20" cy="16" r="6" class="fb-avatar__person"/><path class="fb-avatar__person" d="M8 34c1.8-6.2 5.6-9 12-9s10.2 2.8 12 9"/></svg>
+              </span>
+              <input type="text" placeholder="Write a comment..." aria-label="Write a comment">
+            </form>
+          </article>
+          <article class="fb-post" id="edu-ms">
+            <header class="fb-post__head">
+              <span class="fb-avatar" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20"/><circle cx="20" cy="16" r="6" class="fb-avatar__person"/><path class="fb-avatar__person" d="M8 34c1.8-6.2 5.6-9 12-9s10.2 2.8 12 9"/></svg>
+              </span>
+              <div>
+                <b class="fb-name">Lana</b>
+                <time datetime="2023">2023 <svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1"/><path d="M6 1.2v9.6M1.4 6h9.2M2.2 3.4c1.1.7 2.4 1 3.8 1s2.7-.3 3.8-1M2.2 8.6c1.1-.7 2.4-1 3.8-1s2.7.3 3.8 1" fill="none" stroke="currentColor" stroke-width=".8"/></svg></time>
+              </div>
+            </header>
+            <p class="fb-post__text">Participated in MS Community BiH.</p>
+            <figure class="fb-photo">
+              <img src="education/ms-community.jpg" alt="MS Community BiH">
+              <span class="fb-photo__hint">Add photo</span>
+            </figure>
+            <div class="fb-react" hidden>
+              <i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 15h3V7H1v8zm14-8c0-.8-.7-1.4-1.5-1.4H9.4l.6-2.8.1-.3c0-.3-.1-.6-.3-.8L8.4 0 4.2 4.2C4 4.5 3.8 4.8 3.8 5.2v6.2c0 .8.6 1.4 1.4 1.4h6.2c.6 0 1.1-.4 1.3-.9l2.1-4.8c.1-.2.1-.3.2-.5V7z"/></svg></i>
+              <span>You like this.</span>
+            </div>
+            <div class="fb-actions">
+              <button class="fb-like" type="button" aria-pressed="false">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 15h3V7H1v8zm14-8c0-.8-.7-1.4-1.5-1.4H9.4l.6-2.8.1-.3c0-.3-.1-.6-.3-.8L8.4 0 4.2 4.2C4 4.5 3.8 4.8 3.8 5.2v6.2c0 .8.6 1.4 1.4 1.4h6.2c.6 0 1.1-.4 1.3-.9l2.1-4.8c.1-.2.1-.3.2-.5V7z"/></svg>
+                Like
+              </button>
+              <button class="fb-comment" type="button" aria-expanded="false">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2C4.1 1.2 1 3.8 1 7c0 1.7.9 3.2 2.3 4.2L2.6 14l3.2-1.5c.7.2 1.4.3 2.2.3 3.9 0 7-2.6 7-5.8s-3.1-5.8-7-5.8z"/></svg>
+                Comment
+              </button>
+            </div>
+            <div class="fb-comments"></div>
+            <form class="fb-composer" hidden>
+              <span class="fb-avatar fb-avatar--sm" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20"/><circle cx="20" cy="16" r="6" class="fb-avatar__person"/><path class="fb-avatar__person" d="M8 34c1.8-6.2 5.6-9 12-9s10.2 2.8 12 9"/></svg>
+              </span>
+              <input type="text" placeholder="Write a comment..." aria-label="Write a comment">
+            </form>
+          </article>
+          <!--
+            After graduation, paste another .fb-life article here.
+            Same markup as the high-school card: icon, sentence, and <time>Add date</time>.
+          -->
+          </div>
+          <aside class="fb-rail">
+            <div class="fb-box">
+              <p class="fb-box__label">Recent</p>
+              <ul>
+                <li><b>2021</b> Gimnazija Konjic</li>
+                <li><b>2021</b> FIT Mostar</li>
+                <li><b>2023</b> Innovation competition</li>
+                <li><b>2023</b> MS Community BiH</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <div class="sheet__works">
+        <div class="works">
+          <article class="work">
+            <div class="work__shot"><img alt="BetterMe"></div>
+            <div class="work__meta">
+              <span class="work__num">[01]</span>
+              <div>
+                <h3>BetterMe</h3>
+                <p>Web Application</p>
+                <button class="work__more" type="button" data-open="betterme">Read more <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work__shot"><img alt="eHospital"></div>
+            <div class="work__meta">
+              <span class="work__num">[02]</span>
+              <div>
+                <h3>eHospital</h3>
+                <p>Hospital Management System</p>
+                <button class="work__more" type="button" data-open="ehospital">Read more <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work__shot"><img alt="NuaSpa"></div>
+            <div class="work__meta">
+              <span class="work__num">[03]</span>
+              <div>
+                <h3>NuaSpa</h3>
+                <p>Mobile Application</p>
+                <button class="work__more" type="button" data-open="nuaspa">Read more <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work__shot"><img alt="SmartSprinklerIOT"></div>
+            <div class="work__meta">
+              <span class="work__num">[04]</span>
+              <div>
+                <h3>SmartSprinklerIOT</h3>
+                <p>IoT Project</p>
+                <button class="work__more" type="button" data-open="sprinkler">Read more <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work__shot"><img alt="Money vs Happiness"></div>
+            <div class="work__meta">
+              <span class="work__num">[05]</span>
+              <div>
+                <h3>Money vs Happiness – Machine Learning</h3>
+                <p>Machine Learning</p>
+                <button class="work__more" type="button" data-open="happiness">Read more <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="work">
+            <div class="work__shot"><img alt=""></div>
+            <div class="work__meta">
+              <span class="work__num">[06]</span>
+              <div>
+                <h3>Coming Soon</h3>
+                <p>Coming Soon</p>
+                <span class="work__soon">Coming soon</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="work-view" hidden>
+          <button class="work-view__back" type="button">Back</button>
+          <article data-project="betterme" hidden>
+            <p class="work-view__kicker">[01] Web Application</p>
+            <h3>BetterMe</h3>
+            <p>A productivity and habit-tracking application.</p>
+            <ul>
+              <li>ASP.NET Core 8</li>
+              <li>Angular 20</li>
+              <li>PostgreSQL</li>
+              <li>JWT Authentication</li>
+              <li>Hangfire</li>
+              <li>Docker</li>
+            </ul>
+            <p class="work-view__links">
+              <a href="https://github.com/lana-mustafic/BetterMe" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://betterme-frontend.onrender.com" target="_blank" rel="noopener">Live Demo ↗</a>
+            </p>
+          </article>
+          <article data-project="ehospital" hidden>
+            <p class="work-view__kicker">[02] Hospital Management System</p>
+            <h3>eHospital</h3>
+            <p>A hospital management system.</p>
+            <ul>
+              <li>ASP.NET Core 9</li>
+              <li>Angular 20</li>
+              <li>SQL Server</li>
+              <li>Entity Framework Core</li>
+              <li>Clean Architecture</li>
+            </ul>
+            <p class="work-view__links">
+              <a href="https://github.com/lana-mustafic/eHospital" target="_blank" rel="noopener">GitHub ↗</a>
+            </p>
+          </article>
+          <article data-project="nuaspa" hidden>
+            <p class="work-view__kicker">[03] Mobile Application</p>
+            <h3>NuaSpa</h3>
+            <p>A spa management and booking application.</p>
+            <ul>
+              <li>.NET</li>
+              <li>Flutter</li>
+            </ul>
+            <p class="work-view__links">
+              <a href="https://github.com/lana-mustafic/NuaSpa-App" target="_blank" rel="noopener">GitHub · App ↗</a>
+              <a href="https://github.com/lana-mustafic/NuaSpa-Backend" target="_blank" rel="noopener">GitHub · Backend ↗</a>
+            </p>
+          </article>
+          <article data-project="sprinkler" hidden>
+            <p class="work-view__kicker">[04] IoT Project</p>
+            <h3>SmartSprinklerIOT</h3>
+            <p>IoT smart irrigation system using ESP32, Firebase, and a real-time web dashboard for soil moisture monitoring and pump control.</p>
+            <p class="work-view__links">
+              <a href="https://github.com/lana-mustafic/SmartSprinklerIoT" target="_blank" rel="noopener">GitHub ↗</a>
+            </p>
+          </article>
+          <article data-project="happiness" hidden>
+            <p class="work-view__kicker">[05] Machine Learning</p>
+            <h3>Money vs Happiness – Machine Learning</h3>
+            <p>Machine Learning project exploring the relationship between national wealth and happiness using regression, clustering, and explainable AI.</p>
+            <p class="work-view__links">
+              <a href="https://github.com/lana-mustafic/money-vs-happiness-ml" target="_blank" rel="noopener">GitHub ↗</a>
+            </p>
+          </article>
         </div>
       </div>
     </section>
-    <script src="hero.js?v=28"></script>
+    <script src="hero.js?v=44"></script>
   </body>
 </html>
