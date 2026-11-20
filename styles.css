@@ -964,7 +964,7 @@ body.is-folders .hero {
   inset: 0;
   z-index: 8;
   background: #f6f0e6;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .sheet__bar {
@@ -1051,7 +1051,8 @@ body.is-folders .hero {
 .sheet__skills {
   display: none;
   justify-content: center;
-  padding: 1.15rem 1rem 1.4rem;
+  align-items: flex-start;
+  padding: 0 0.75rem 0.4rem;
 }
 
 .sheet[data-page="skills"] .sheet__skills {
@@ -1059,8 +1060,10 @@ body.is-folders .hero {
 }
 
 .shelf {
+  --w: min(28rem, 92vw, calc((100dvh - 2.4rem) / 1.39));
   position: relative;
-  width: min(32rem, 88vw, calc((100dvh - 8rem) * 950 / 1024));
+  width: var(--w);
+  margin-top: max(0px, calc(var(--w) * 0.31 - 1.15rem));
 }
 
 .shelf__board {
@@ -1069,19 +1072,38 @@ body.is-folders .hero {
   height: auto;
 }
 
+.shelf__top {
+  position: absolute;
+  z-index: 2;
+  left: 5%;
+  width: 90%;
+  height: auto;
+  top: 0;
+  transform: translateY(calc(-100% + 0.55rem));
+  pointer-events: none;
+}
+
 .shelf__item {
   position: absolute;
-  height: 15%;
+  height: 14.2%;
   width: auto;
   bottom: 79.7%;
 }
 
+.shelf__item--flutter {
+  left: 15.6%;
+}
+
 .shelf__item--angular {
-  left: 31%;
+  left: 33.4%;
 }
 
 .shelf__item--dotnet {
-  left: 52.2%;
+  left: 51.2%;
+}
+
+.shelf__item--sql {
+  left: 69%;
 }
 
 @media (max-width: 800px) {
