@@ -22,7 +22,10 @@ function revealVideo() {
 
 function playVideo() {
   if (heroLeft || video.ended) return;
-  if (!video.paused) return;
+  if (!video.paused) {
+    revealVideo();
+    return;
+  }
 
   video.muted = true;
   video.playsInline = true;

@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=179" />
+    <link rel="stylesheet" href="styles.css?v=180" />
   </head>
   <body>
     <header class="hero">
@@ -51,6 +51,25 @@
           disableremoteplayback
         ></video>
         <img class="hero__still" src="avatar-still.jpg" alt="" width="960" height="960">
+        <script>
+          (function () {
+            var video = document.querySelector(".hero__video");
+            var still = document.querySelector(".hero__still");
+            if (!video) return;
+            video.muted = true;
+            video.defaultMuted = true;
+            video.playsInline = true;
+            function reveal() {
+              if (video.paused) return;
+              video.classList.add("is-playing");
+              if (still) still.classList.add("is-gone");
+            }
+            video.addEventListener("playing", reveal);
+            var play = video.play();
+            if (play && play.then) play.then(reveal).catch(function () {});
+            if (!video.paused) reveal();
+          })();
+        </script>
         <button class="hero__button" type="button" aria-label="Dugme">
           <img src="button.png" alt="" width="453" height="479" draggable="false" />
         </button>
@@ -690,6 +709,6 @@
         </div>
       </div>
     </section>
-    <script src="hero.js?v=54"></script>
+    <script src="hero.js?v=55"></script>
   </body>
 </html>

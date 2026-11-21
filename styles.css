@@ -240,10 +240,6 @@ body.is-folders .hero {
 }
 
 .hero__video {
-  opacity: 0;
-}
-
-.hero__video.is-playing {
   opacity: 1;
 }
 
