@@ -249,7 +249,9 @@ document.querySelector('[data-ms="copy"]').addEventListener("click", async () =>
   copied.hidden = false;
 });
 
-messageForm.addEventListener("submit", async (event) => {
+let sendTicket = 0;
+
+messageForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(messageForm);
   const name = String(data.get("name") || "").trim();
@@ -257,7 +259,6 @@ messageForm.addEventListener("submit", async (event) => {
   const subjectText = String(data.get("subject") || "").trim();
   const message = String(data.get("message") || "").trim();
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const send = messageForm.querySelector(".ms-msg__send");
   messageNote.hidden = false;
   if (!name || !emailOk || !message) {
     messageNote.textContent = "Fill in your name, a valid email, and a message.";
@@ -265,54 +266,48 @@ messageForm.addEventListener("submit", async (event) => {
     messageNote.scrollIntoView({ block: "nearest" });
     return;
   }
-  messageNote.textContent = "Sending...";
-  messageNote.className = "ms-msg__note";
+  const ticket = ++sendTicket;
+  const payload = {
+    name,
+    email,
+    _replyto: email,
+    _subject: subjectText || `Message from ${name}`,
+    message,
+    _captcha: "false",
+  };
+  messageForm.reset();
+  messageNote.textContent = "Message sent. Lana will get it by email.";
+  messageNote.className = "ms-msg__note is-ok";
   messageNote.scrollIntoView({ block: "nearest" });
-  send.disabled = true;
-  const controller = new AbortController();
-  const timer = window.setTimeout(() => controller.abort(), 90000);
-  try {
-    const response = await fetch("https://formsubmit.co/ajax/lana-mustafic@outlook.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        _replyto: email,
-        _subject: subjectText || `Message from ${name}`,
-        message,
-        _captcha: "false",
-      }),
-      signal: controller.signal,
-    });
-    let result = {};
-    try {
-      result = await response.json();
-    } catch {
-      result = {};
-    }
-    const sent = response.ok && String(result.success) === "true";
-    if (!sent) {
+  fetch("https://formsubmit.co/ajax/lana-mustafic@outlook.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(payload),
+    keepalive: true,
+  })
+    .then(async (response) => {
+      let result = {};
+      try {
+        result = await response.json();
+      } catch {
+        result = {};
+      }
+      if (ticket !== sendTicket) return;
+      if (response.ok && String(result.success) === "true") return;
       const detail = String(result.message || "");
       messageNote.textContent = /activat/i.test(detail)
         ? "Almost. Open the Activate Form email in Outlook, click it once, then send again."
         : "The message could not be sent. Use Email Me instead.";
       messageNote.className = "ms-msg__note is-error";
-      return;
-    }
-    messageForm.reset();
-    messageNote.textContent = "Message sent. Lana will get it by email.";
-    messageNote.className = "ms-msg__note is-ok";
-  } catch {
-    messageNote.textContent = "The message could not be sent. Use Email Me instead.";
-    messageNote.className = "ms-msg__note is-error";
-  } finally {
-    window.clearTimeout(timer);
-    send.disabled = false;
-  }
+    })
+    .catch(() => {
+      if (ticket !== sendTicket) return;
+      messageNote.textContent = "The message could not be sent. Use Email Me instead.";
+      messageNote.className = "ms-msg__note is-error";
+    });
 });
 
 const pcWin = document.querySelector(".pc__win");
