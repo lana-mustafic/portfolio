@@ -6,14 +6,29 @@ video.muted = true;
 video.defaultMuted = true;
 video.volume = 0;
 
-function playVideo() {
-  if (motion.matches) return;
+let heroLeft = false;
 
+function playVideo() {
+  if (motion.matches || heroLeft || video.ended) return;
+  if (!video.paused && video.currentTime > 0) return;
+
+  video.muted = true;
+  video.playsInline = true;
   const play = video.play();
   if (play && typeof play.catch === "function") {
-    play.catch(() => {});
+    play.catch(() => {
+      if (!heroLeft) video.classList.add("is-holding");
+    });
   }
 }
+
+video.addEventListener("click", (event) => {
+  if (motion.matches || heroLeft || !video.classList.contains("is-holding")) return;
+  event.preventDefault();
+  video.muted = true;
+  const play = video.play();
+  if (play && typeof play.catch === "function") play.catch(() => {});
+});
 
 const hints = [...document.querySelectorAll(".hint")];
 const bursts = [...document.querySelectorAll(".hero__callout .burst")];
@@ -57,7 +72,16 @@ function startWatch() {
   requestAnimationFrame(watch);
 }
 
-video.addEventListener("play", startWatch);
+video.addEventListener("play", () => {
+  video.classList.remove("is-holding");
+  startWatch();
+});
+video.addEventListener("loadeddata", playVideo);
+video.addEventListener("canplay", playVideo);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") playVideo();
+});
+window.addEventListener("pageshow", playVideo);
 video.addEventListener("timeupdate", sync);
 video.addEventListener("ended", () => {
   showButton();
@@ -68,6 +92,8 @@ const folders = document.querySelector(".folders");
 const doing = document.querySelector(".doing");
 
 function openFolders(button) {
+  heroLeft = true;
+  video.classList.remove("is-holding");
   const rect = button.getBoundingClientRect();
   folders.style.setProperty("--open-x", `${rect.left + rect.width / 2}px`);
   folders.style.setProperty("--open-y", `${rect.top + rect.height / 2}px`);
@@ -105,7 +131,13 @@ function openSheet(id, from) {
   const viaSkills = id === "projects" && from === "skills";
   sheetVia.hidden = !viaSkills;
   sheet.classList.toggle("is-via", viaSkills);
+  if (sheet.contains(document.activeElement)) document.activeElement.blur();
   sheet.hidden = false;
+  const pinTop = () => {
+    sheet.scrollTop = 0;
+  };
+  pinTop();
+  requestAnimationFrame(pinTop);
 }
 
 document.querySelectorAll(".folder").forEach((folder) => {
@@ -131,6 +163,8 @@ document.querySelectorAll("[data-jump]").forEach((button) => {
 });
 
 function openContact() {
+  heroLeft = true;
+  video.classList.remove("is-holding");
   video.pause();
   sheet.hidden = true;
   if (typeof closeWork === "function") closeWork();

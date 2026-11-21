@@ -239,6 +239,10 @@ body.is-folders .hero {
   mix-blend-mode: darken;
 }
 
+.hero__video.is-holding {
+  pointer-events: auto;
+}
+
 .hero__button {
   position: absolute;
   left: 103%;
@@ -1902,6 +1906,7 @@ body.is-folders .hero {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
+  overflow-anchor: none;
   background: #e9eaed;
 }
 
