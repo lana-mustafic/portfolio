@@ -90,6 +90,7 @@ heroButton.addEventListener("click", pressHeroButton);
 
 const sheet = document.querySelector(".sheet");
 const sheetName = document.querySelector(".sheet__name");
+const sheetVia = document.querySelector(".sheet__via");
 const pageNames = {
   about: "About",
   skills: "Skills",
@@ -97,10 +98,13 @@ const pageNames = {
   education: "Education",
 };
 
-function openSheet(id) {
+function openSheet(id, from) {
   if (!pageNames[id]) return;
   sheet.dataset.page = id;
   sheetName.textContent = pageNames[id];
+  const viaSkills = id === "projects" && from === "skills";
+  sheetVia.hidden = !viaSkills;
+  sheet.classList.toggle("is-via", viaSkills);
   sheet.hidden = false;
 }
 
@@ -251,7 +255,7 @@ document.querySelectorAll(".pc__icon").forEach((icon) => {
   icon.addEventListener("click", () => {
     if (icon.dataset.go) {
       closeWin();
-      openSheet(icon.dataset.go);
+      openSheet(icon.dataset.go, "skills");
       return;
     }
     openWin(icon);
@@ -260,6 +264,11 @@ document.querySelectorAll(".pc__icon").forEach((icon) => {
 
 document.querySelector(".pc__x").addEventListener("click", closeWin);
 document.querySelector(".sheet__home").addEventListener("click", closeWin);
+
+document.querySelector(".sheet__back").addEventListener("click", () => {
+  if (typeof closeWork === "function") closeWork();
+  openSheet("skills");
+});
 
 like.addEventListener("click", () => {
   const on = like.classList.toggle("is-on");

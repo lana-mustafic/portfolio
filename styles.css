@@ -1136,6 +1136,31 @@ body.is-folders .hero {
   transform: translateY(0.04em);
 }
 
+.sheet__via {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.sheet__via[hidden] {
+  display: none !important;
+}
+
+.sheet__back {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sheet__back:hover {
+  transform: scale(1.04);
+}
+
 .sheet__rule {
   height: 5px;
   margin: 0.55rem 0 0;
@@ -2643,6 +2668,10 @@ body.is-folders .hero {
     padding: 0.2rem 0.2rem 0.2rem 0.7rem;
     border-width: 2.5px;
     box-shadow: 2px 3px 0 #1c1c1c;
+  }
+
+  .sheet.is-via .go-contact {
+    display: none;
   }
 
   .go-contact__go {

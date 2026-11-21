@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=169" />
+    <link rel="stylesheet" href="styles.css?v=171" />
   </head>
   <body>
     <header class="hero">
@@ -219,6 +219,10 @@
               Home
             </button>
             <span class="sheet__sep" aria-hidden="true">&gt;</span>
+            <span class="sheet__via" hidden>
+              <button class="sheet__back" type="button">Skills</button>
+              <span class="sheet__sep" aria-hidden="true">&gt;</span>
+            </span>
             <span class="sheet__name">About</span>
           </div>
           <button class="go-contact" type="button">
@@ -346,13 +350,13 @@
               <svg viewBox="0 0 68 58" aria-hidden="true"><path d="M16 16h36l-3 32H19z" fill="#d7dbe3"/><path d="M14 16h40M27 10h14" fill="none" stroke="#f4f7fb" stroke-width="3" stroke-linecap="round"/></svg>
               <span>Recycle Bin</span>
             </button>
-            <button class="pc__icon pc__icon--go" type="button" data-go="projects">
-              <svg viewBox="0 0 68 58" aria-hidden="true"><rect x="8" y="6" width="52" height="34" rx="3" fill="#eef6ff"/><rect x="12" y="10" width="44" height="24" fill="#9fd0f2"/><path d="M24 40h20l4 10H20z" fill="#d5e4f2"/></svg>
-              <span>My Projects</span>
-            </button>
             <button class="pc__icon pc__icon--note" type="button" data-win="readme" data-title="README.txt" data-tone="cream">
               <svg viewBox="0 0 68 58" aria-hidden="true"><path d="M16 4h24l14 14v36H16z" fill="#fffdf8"/><path d="M40 4v14h14" fill="#e7eef6"/><path d="M24 30h24M24 37h18M24 44h14" fill="none" stroke="#7aa6d4" stroke-width="2" stroke-linecap="round"/></svg>
               <span>README.txt</span>
+            </button>
+            <button class="pc__icon pc__icon--go" type="button" data-go="projects">
+              <svg viewBox="0 0 68 58" aria-hidden="true"><rect x="8" y="6" width="52" height="34" rx="3" fill="#eef6ff"/><rect x="12" y="10" width="44" height="24" fill="#9fd0f2"/><path d="M24 40h20l4 10H20z" fill="#d5e4f2"/></svg>
+              <span>My Projects</span>
             </button>
           </div>
           <div class="pc__win" hidden>
@@ -683,6 +687,6 @@
         </div>
       </div>
     </section>
-    <script src="hero.js?v=44"></script>
+    <script src="hero.js?v=45"></script>
   </body>
 </html>
