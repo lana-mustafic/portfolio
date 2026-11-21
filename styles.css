@@ -236,7 +236,6 @@ body.is-folders .hero {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
-  mix-blend-mode: darken;
 }
 
 .hero__video.is-holding {
@@ -514,6 +513,36 @@ body.is-folders .hero {
     left: auto;
     right: 0.15rem;
     top: 122%;
+  }
+}
+
+@media (max-width: 800px) and (min-aspect-ratio: 2/3) {
+  .hero__stage {
+    left: 0;
+    width: min(72%, calc(100dvh - 12.5rem));
+    height: auto;
+    aspect-ratio: 1;
+    max-height: none;
+  }
+
+  .hero__video {
+    right: 0;
+    width: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .hero__button,
+  .hero__hints {
+    left: 104%;
+    top: 64%;
+    width: 22%;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1199px) {
+  .hero {
+    --stage: min(56vw, 76dvh);
   }
 }
 
@@ -2395,6 +2424,15 @@ body.is-folders .hero {
 .work__more:hover,
 .work__more:focus-visible {
   color: #1c1c1c;
+}
+
+.work__more:disabled {
+  cursor: default;
+}
+
+.work__more:disabled:hover,
+.work__more:disabled:focus-visible {
+  color: #6d675f;
 }
 
 .work-view {
