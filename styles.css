@@ -850,6 +850,11 @@ body.is-folders .hero {
   background: #5588bb;
 }
 
+.ms-msg__send:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
 .go-contact {
   display: inline-flex;
   align-items: center;

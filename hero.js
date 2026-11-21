@@ -204,7 +204,7 @@ document.querySelector('[data-ms="copy"]').addEventListener("click", async () =>
   copied.hidden = false;
 });
 
-messageForm.addEventListener("submit", (event) => {
+messageForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const data = new FormData(messageForm);
   const name = String(data.get("name") || "").trim();
@@ -212,17 +212,46 @@ messageForm.addEventListener("submit", (event) => {
   const subjectText = String(data.get("subject") || "").trim();
   const message = String(data.get("message") || "").trim();
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const send = messageForm.querySelector(".ms-msg__send");
   messageNote.hidden = false;
-  if (!name || !emailOk || !subjectText || !message) {
-    messageNote.textContent = "Fill in every field with a valid email.";
+  if (!name || !emailOk || !message) {
+    messageNote.textContent = "Fill in your name, a valid email, and a message.";
     messageNote.className = "ms-msg__note is-error";
     return;
   }
-  const subject = encodeURIComponent(subjectText);
-  const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
-  window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
-  messageNote.textContent = "Your email app opened. The message is not sent until you send it there.";
-  messageNote.className = "ms-msg__note is-ok";
+  send.disabled = true;
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/lana-mustafic@outlook.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        _replyto: email,
+        _subject: subjectText || `Message from ${name}`,
+        message,
+        _captcha: "false",
+      }),
+    });
+    const result = await response.json();
+    const sent = response.ok && String(result.success) === "true";
+    if (!sent) {
+      messageNote.textContent = "The message could not be sent. Use Email Me instead.";
+      messageNote.className = "ms-msg__note is-error";
+      return;
+    }
+    messageForm.reset();
+    messageNote.textContent = "Message sent. Lana will get it by email.";
+    messageNote.className = "ms-msg__note is-ok";
+  } catch {
+    messageNote.textContent = "The message could not be sent. Use Email Me instead.";
+    messageNote.className = "ms-msg__note is-error";
+  } finally {
+    send.disabled = false;
+  }
 });
 
 const pcWin = document.querySelector(".pc__win");
