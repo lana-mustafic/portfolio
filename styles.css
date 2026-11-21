@@ -729,7 +729,6 @@ body.is-folders .hero {
 
 .ms__box {
   display: flex;
-  flex: 1;
   flex-direction: column;
 }
 
@@ -746,12 +745,12 @@ body.is-folders .hero {
 
 .ms__panel {
   display: grid;
-  flex: 1;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
-  align-content: space-evenly;
-  padding: 8px 6px;
+  align-content: start;
+  gap: 2px 4px;
+  padding: 8px 6px 10px;
 }
 
 .ms__action {
