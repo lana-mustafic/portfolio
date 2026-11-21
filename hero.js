@@ -223,8 +223,12 @@ document.querySelector(".doing__back").addEventListener("click", () => {
 });
 
 document.querySelector('[data-ms="message"]').addEventListener("click", () => {
-  messageNote.hidden = true;
-  messageWindow.scrollIntoView({ block: "nearest" });
+  const filled = ["name", "email", "message"].some((field) => messageForm.elements[field].value.trim());
+  messageWindow.scrollIntoView({ block: "start" });
+  if (filled) {
+    messageForm.requestSubmit();
+    return;
+  }
   messageForm.querySelector("input").focus();
 });
 
@@ -258,11 +262,15 @@ messageForm.addEventListener("submit", async (event) => {
   if (!name || !emailOk || !message) {
     messageNote.textContent = "Fill in your name, a valid email, and a message.";
     messageNote.className = "ms-msg__note is-error";
+    messageNote.scrollIntoView({ block: "nearest" });
     return;
   }
+  messageNote.textContent = "Sending...";
+  messageNote.className = "ms-msg__note";
+  messageNote.scrollIntoView({ block: "nearest" });
   send.disabled = true;
   const controller = new AbortController();
-  const timer = window.setTimeout(() => controller.abort(), 20000);
+  const timer = window.setTimeout(() => controller.abort(), 45000);
   try {
     const response = await fetch("https://formsubmit.co/ajax/lana-mustafic@outlook.com", {
       method: "POST",
