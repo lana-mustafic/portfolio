@@ -388,6 +388,9 @@ body.is-folders .hero {
 @media (max-width: 800px) {
   .hero {
     --stage: 100%;
+    position: fixed;
+    inset: 0;
+    height: auto;
     justify-content: flex-start;
   }
 
@@ -440,19 +443,23 @@ body.is-folders .hero {
   }
 
   .hero__stage {
+    position: absolute;
+    bottom: 0;
+    left: -8%;
     width: 78%;
     height: 58dvh;
     max-width: none;
-    max-height: none;
-    margin: 0 0 0.4rem -8%;
+    max-height: calc(100% - 13.5rem);
+    margin: 0;
     overflow: visible;
   }
 
   .hero__video {
     right: auto;
     width: calc(100% + 2.8rem);
+    height: 100%;
     object-fit: cover;
-    object-position: calc(-0.78 * (58dvh - 78vw)) 38%;
+    object-position: calc(-0.78 * (58dvh - 78vw)) 100%;
   }
 
   .hero__button,
