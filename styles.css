@@ -225,8 +225,7 @@ body.is-folders .hero {
   background: #f6f0e6;
 }
 
-.hero__video,
-.hero__still {
+.hero__video {
   position: absolute;
   inset: 0;
   display: block;
@@ -234,21 +233,23 @@ body.is-folders .hero {
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
+  background: #f6f0e6;
+  opacity: 0;
+  outline: none;
+  border: 0;
   user-select: none;
   -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
   pointer-events: none;
 }
 
-.hero__video {
+.hero__video.is-playing {
   opacity: 1;
 }
 
-.hero__still {
-  z-index: 1;
-}
-
-.hero__still.is-gone {
-  display: none;
+.hero__video:focus,
+.hero__video:focus-visible {
+  outline: none;
 }
 
 .hero__video::-webkit-media-controls,
@@ -481,8 +482,7 @@ body.is-folders .hero {
     overflow: visible;
   }
 
-  .hero__video,
-  .hero__still {
+  .hero__video {
     right: auto;
     width: calc(100% + 2.8rem);
     height: 100%;
@@ -546,8 +546,7 @@ body.is-folders .hero {
     max-height: none;
   }
 
-  .hero__video,
-  .hero__still {
+  .hero__video {
     right: 0;
     width: 100%;
     object-fit: contain;

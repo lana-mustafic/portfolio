@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=181" />
+    <link rel="stylesheet" href="styles.css?v=182" />
   </head>
   <body>
     <header class="hero">
@@ -50,11 +50,9 @@
           disablepictureinpicture
           disableremoteplayback
         ></video>
-        <img class="hero__still" src="avatar-still.png?v=1" alt="" width="960" height="960">
         <script>
           (function () {
             var video = document.querySelector(".hero__video");
-            var still = document.querySelector(".hero__still");
             if (!video) return;
             video.muted = true;
             video.defaultMuted = true;
@@ -62,7 +60,6 @@
             function reveal() {
               if (video.paused) return;
               video.classList.add("is-playing");
-              if (still) still.classList.add("is-gone");
             }
             video.addEventListener("playing", reveal);
             var play = video.play();
@@ -709,6 +706,6 @@
         </div>
       </div>
     </section>
-    <script src="hero.js?v=55"></script>
+    <script src="hero.js?v=56"></script>
   </body>
 </html>

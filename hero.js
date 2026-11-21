@@ -13,11 +13,8 @@ video.setAttribute("webkit-playsinline", "true");
 
 let heroLeft = false;
 
-const still = document.querySelector(".hero__still");
-
 function revealVideo() {
   video.classList.add("is-playing");
-  if (still) still.classList.add("is-gone");
 }
 
 function playVideo() {
