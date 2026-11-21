@@ -270,7 +270,7 @@ messageForm.addEventListener("submit", async (event) => {
   messageNote.scrollIntoView({ block: "nearest" });
   send.disabled = true;
   const controller = new AbortController();
-  const timer = window.setTimeout(() => controller.abort(), 45000);
+  const timer = window.setTimeout(() => controller.abort(), 90000);
   try {
     const response = await fetch("https://formsubmit.co/ajax/lana-mustafic@outlook.com", {
       method: "POST",
