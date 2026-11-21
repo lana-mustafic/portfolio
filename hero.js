@@ -5,30 +5,30 @@ const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
 video.muted = true;
 video.defaultMuted = true;
 video.volume = 0;
+video.controls = false;
+video.playsInline = true;
+video.setAttribute("muted", "");
+video.setAttribute("playsinline", "true");
+video.setAttribute("webkit-playsinline", "true");
 
 let heroLeft = false;
 
 function playVideo() {
   if (motion.matches || heroLeft || video.ended) return;
-  if (!video.paused && video.currentTime > 0) return;
+  if (!video.paused) return;
 
   video.muted = true;
   video.playsInline = true;
   const play = video.play();
-  if (play && typeof play.catch === "function") {
-    play.catch(() => {
-      if (!heroLeft) video.classList.add("is-holding");
-    });
-  }
+  if (play && typeof play.catch === "function") play.catch(() => {});
 }
 
-video.addEventListener("click", (event) => {
-  if (motion.matches || heroLeft || !video.classList.contains("is-holding")) return;
-  event.preventDefault();
-  video.muted = true;
-  const play = video.play();
-  if (play && typeof play.catch === "function") play.catch(() => {});
-});
+function unlockVideo() {
+  playVideo();
+}
+
+window.addEventListener("pointerdown", unlockVideo, { capture: true });
+window.addEventListener("touchstart", unlockVideo, { capture: true });
 
 const hints = [...document.querySelectorAll(".hint")];
 const bursts = [...document.querySelectorAll(".hero__callout .burst")];
@@ -72,12 +72,11 @@ function startWatch() {
   requestAnimationFrame(watch);
 }
 
-video.addEventListener("play", () => {
-  video.classList.remove("is-holding");
-  startWatch();
-});
+video.addEventListener("play", startWatch);
+video.addEventListener("loadedmetadata", playVideo);
 video.addEventListener("loadeddata", playVideo);
 video.addEventListener("canplay", playVideo);
+video.addEventListener("canplaythrough", playVideo);
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") playVideo();
 });
@@ -93,7 +92,6 @@ const doing = document.querySelector(".doing");
 
 function openFolders(button) {
   heroLeft = true;
-  video.classList.remove("is-holding");
   const rect = button.getBoundingClientRect();
   folders.style.setProperty("--open-x", `${rect.left + rect.width / 2}px`);
   folders.style.setProperty("--open-y", `${rect.top + rect.height / 2}px`);
@@ -164,7 +162,6 @@ document.querySelectorAll("[data-jump]").forEach((button) => {
 
 function openContact() {
   heroLeft = true;
-  video.classList.remove("is-holding");
   video.pause();
   sheet.hidden = true;
   if (typeof closeWork === "function") closeWork();
@@ -410,3 +407,11 @@ document.querySelectorAll(".fb-post").forEach((post) => {
 playVideo();
 if (!video.paused) startWatch();
 window.setTimeout(showButton, 2600);
+const keepPlaying = window.setInterval(() => {
+  if (heroLeft || motion.matches || video.ended || !video.paused) {
+    window.clearInterval(keepPlaying);
+    return;
+  }
+  playVideo();
+}, 300);
+window.setTimeout(() => window.clearInterval(keepPlaying), 8000);
