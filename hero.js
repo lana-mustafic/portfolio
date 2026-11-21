@@ -261,6 +261,8 @@ messageForm.addEventListener("submit", async (event) => {
     return;
   }
   send.disabled = true;
+  const controller = new AbortController();
+  const timer = window.setTimeout(() => controller.abort(), 20000);
   try {
     const response = await fetch("https://formsubmit.co/ajax/lana-mustafic@outlook.com", {
       method: "POST",
@@ -276,11 +278,20 @@ messageForm.addEventListener("submit", async (event) => {
         message,
         _captcha: "false",
       }),
+      signal: controller.signal,
     });
-    const result = await response.json();
+    let result = {};
+    try {
+      result = await response.json();
+    } catch {
+      result = {};
+    }
     const sent = response.ok && String(result.success) === "true";
     if (!sent) {
-      messageNote.textContent = "The message could not be sent. Use Email Me instead.";
+      const detail = String(result.message || "");
+      messageNote.textContent = /activat/i.test(detail)
+        ? "Almost. Open the Activate Form email in Outlook, click it once, then send again."
+        : "The message could not be sent. Use Email Me instead.";
       messageNote.className = "ms-msg__note is-error";
       return;
     }
@@ -291,6 +302,7 @@ messageForm.addEventListener("submit", async (event) => {
     messageNote.textContent = "The message could not be sent. Use Email Me instead.";
     messageNote.className = "ms-msg__note is-error";
   } finally {
+    window.clearTimeout(timer);
     send.disabled = false;
   }
 });
