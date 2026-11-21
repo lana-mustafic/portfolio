@@ -225,7 +225,8 @@ body.is-folders .hero {
   background: #f6f0e6;
 }
 
-.hero__video {
+.hero__video,
+.hero__still {
   position: absolute;
   inset: 0;
   display: block;
@@ -236,6 +237,22 @@ body.is-folders .hero {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
+}
+
+.hero__video {
+  opacity: 0;
+}
+
+.hero__video.is-playing {
+  opacity: 1;
+}
+
+.hero__still {
+  z-index: 1;
+}
+
+.hero__still.is-gone {
+  display: none;
 }
 
 .hero__video::-webkit-media-controls,
@@ -468,7 +485,8 @@ body.is-folders .hero {
     overflow: visible;
   }
 
-  .hero__video {
+  .hero__video,
+  .hero__still {
     right: auto;
     width: calc(100% + 2.8rem);
     height: 100%;
@@ -532,7 +550,8 @@ body.is-folders .hero {
     max-height: none;
   }
 
-  .hero__video {
+  .hero__video,
+  .hero__still {
     right: 0;
     width: 100%;
     object-fit: contain;

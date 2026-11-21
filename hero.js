@@ -13,14 +13,23 @@ video.setAttribute("webkit-playsinline", "true");
 
 let heroLeft = false;
 
+const still = document.querySelector(".hero__still");
+
+function revealVideo() {
+  video.classList.add("is-playing");
+  if (still) still.classList.add("is-gone");
+}
+
 function playVideo() {
-  if (motion.matches || heroLeft || video.ended) return;
+  if (heroLeft || video.ended) return;
   if (!video.paused) return;
 
   video.muted = true;
   video.playsInline = true;
   const play = video.play();
-  if (play && typeof play.catch === "function") play.catch(() => {});
+  if (play && typeof play.then === "function") {
+    play.then(revealVideo).catch(() => {});
+  }
 }
 
 function unlockVideo() {
@@ -73,6 +82,7 @@ function startWatch() {
 }
 
 video.addEventListener("play", startWatch);
+video.addEventListener("playing", revealVideo);
 video.addEventListener("loadedmetadata", playVideo);
 video.addEventListener("loadeddata", playVideo);
 video.addEventListener("canplay", playVideo);
@@ -408,7 +418,7 @@ playVideo();
 if (!video.paused) startWatch();
 window.setTimeout(showButton, 2600);
 const keepPlaying = window.setInterval(() => {
-  if (heroLeft || motion.matches || video.ended || !video.paused) {
+  if (heroLeft || video.ended || !video.paused) {
     window.clearInterval(keepPlaying);
     return;
   }
